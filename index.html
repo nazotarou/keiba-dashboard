@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>競馬収支ダッシュボード</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Summary -->
+    <div class="card summary">
+      <div id="profit" class="profit">---</div>
+      <div id="roi" class="roi">ROI ---%</div>
+      <div id="updated" class="updated">読み込み中...</div>
+    </div>
+
+    <!-- Chart -->
+    <div class="card">
+      <div class="chart-title">累計推移</div>
+      <canvas id="chart"></canvas>
+    </div>
+
+    <!-- Monthly -->
+    <div class="card">
+      <div class="card-title">今月の成績</div>
+      <div id="monthly" class="monthly-row">
+        <span class="monthly-label">---</span>
+        <span class="monthly-profit">---</span>
+      </div>
+    </div>
+
+    <!-- Weekend selector -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">日別結果</div>
+        <div id="month-selector" class="month-selector"></div>
+      </div>
+      <div id="weekend-selector"></div>
+    </div>
+
+    <!-- Daily content -->
+    <div class="card" id="daily-card" style="display:none;">
+      <div id="daily-content"></div>
+    </div>
+
+    <!-- Detail link -->
+    <a href="detail.html" class="detail-link">→ 詳細を見る</a>
+  </div>
+
+  <script>
+    let globalData = null;
+    let chartInstance = null;
+    const CURRENT_YEAR = 2026;
+
+    async function loadData() {
+      try {
+        const res = await fetch(`data_${CURRENT_YEAR}.json`);
+        globalData = await res.json();
+        renderSummary();
+        renderChart();
+        renderMonthly();
+        renderWeekendSelector();
+      } catch (e) {
+        document.getElementById('profit').textContent = 'Error';
+        document.getElementById('updated').textContent = e.message;
+      }
+    }
+
+    function renderSummary() {
+      const profit = globalData.summary.totalProfit;
+      const roi = globalData.summary.roi;
+      const updated = globalData.lastUpdated;
+
+      const profitEl = document.getElementById('profit');
+      profitEl.textContent = (profit >= 0 ? '+' : '') + profit.toLocaleString() + '円';
+      profitEl.classList.remove('negative');
+      if (profit < 0) profitEl.classList.add('negative');
+
+      document.getElementById('roi').textContent = 'ROI ' + roi + '%';
+      document.getElementById('updated').textContent = '最終更新: ' + updated;
+    }
+
+    function renderChart() {
+      // Destroy existing chart
+      if (chartInstance) {
+        chartInstance.destroy();
+      }
+
+      const labels = globalData.daily.map(d => d.date.slice(5));
+      const values = globalData.daily.map(d => d.cumulative);
+
+      chartInstance = new Chart(document.getElementById('chart'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: values,
+            borderColor: '#4ade80',
+            backgroundColor: 'rgba(74, 222, 128, 0.1)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: values.map(v => v < 0 ? '#f87171' : '#4ade80'),
+            segment: {
+              borderColor: ctx => {
+                const prev = ctx.p0.parsed.y;
+                const curr = ctx.p1.parsed.y;
+                // Only red if both points are below zero
+                return (prev < 0 && curr < 0) ? '#f87171' : '#4ade80';
+              }
+            }
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: {
+              ticks: { color: '#64748b' },
+              grid: { color: 'rgba(255,255,255,0.05)' }
+            },
+            y: {
+              ticks: {
+                color: '#64748b',
+                callback: v => v.toLocaleString() + '円'
+              },
+              grid: { color: 'rgba(255,255,255,0.05)' }
+            }
+          }
+        }
+      });
+    }
+
+    function renderMonthly() {
+      const current = globalData.monthly[globalData.monthly.length - 1];
+      if (!current) return;
+
+      const month = parseInt(current.month.slice(5));
+      const monthLabel = month + '月';
+      const profit = current.profit;
+      const roi = current.roi;
+
+      document.getElementById('monthly').innerHTML = `
+        <span class="monthly-label">${monthLabel}</span>
+        <div>
+          <span class="monthly-profit ${profit < 0 ? 'negative' : ''}">${profit >= 0 ? '+' : ''}${profit.toLocaleString()}円</span>
+          <span class="monthly-roi">ROI ${roi}%</span>
+        </div>
+      `;
+    }
+
+    // 2026 Japanese holidays (month-day format)
+    const HOLIDAYS_2026 = {
+      '01-01': '元日',
+      '01-12': '成人の日',
+      '02-11': '建国記念の日',
+      '02-23': '天皇誕生日',
+      '03-20': '春分の日',
+      '04-29': '昭和の日',
+      '05-03': '憲法記念日',
+      '05-04': 'みどりの日',
+      '05-05': 'こどもの日',
+      '05-06': '振替休日',
+      '07-20': '海の日',
+      '08-11': '山の日',
+      '09-21': '敬老の日',
+      '09-22': '秋分の日',
+      '10-12': 'スポーツの日',
+      '11-03': '文化の日',
+      '11-23': '勤労感謝の日'
+    };
+
+    function isHoliday(dateStr) {
+      const md = dateStr.slice(5); // "MM-DD"
+      return HOLIDAYS_2026[md] || null;
+    }
+
+    // Global state for month groups and selected month
+    let monthGroups = {};
+    let selectedMonth = null;
+
+    function renderWeekendSelector() {
+      const selectorEl = document.getElementById('weekend-selector');
+      const monthSelectorEl = document.getElementById('month-selector');
+      const daily = globalData.daily;
+
+      // Build date map
+      const dateMap = {};
+      daily.forEach(d => { dateMap[d.date] = d; });
+
+      // Find date range
+      const dates = daily.map(d => new Date(d.date));
+      const minDate = new Date(Math.min(...dates));
+      const maxDate = new Date(Math.max(...dates));
+
+      // Find first Saturday on or before maxDate
+      let sat = new Date(maxDate);
+      while (sat.getDay() !== 6) {
+        sat.setDate(sat.getDate() - 1);
+      }
+
+      // Collect all weekends from newest to oldest
+      const weekends = [];
+      while (sat >= minDate || new Date(sat.getTime() + 86400000) >= minDate) {
+        const sun = new Date(sat);
+        sun.setDate(sun.getDate() + 1);
+        const mon = new Date(sun);
+        mon.setDate(mon.getDate() + 1);
+
+        const satStr = sat.toISOString().slice(0, 10);
+        const sunStr = sun.toISOString().slice(0, 10);
+        const monStr = mon.toISOString().slice(0, 10);
+
+        const satData = dateMap[satStr] || null;
+        const sunData = dateMap[sunStr] || null;
+        const monData = dateMap[monStr] || null;
+        const monHoliday = isHoliday(monStr);
+
+        // Only include if at least one day has data
+        if (satData || sunData || (monHoliday && monData)) {
+          const month = sat.getMonth() + 1;
+          const weekNum = Math.ceil(sat.getDate() / 7);
+          weekends.push({
+            sat: satStr,
+            sun: sunStr,
+            mon: monHoliday ? monStr : null,
+            satData,
+            sunData,
+            monData: monHoliday ? monData : null,
+            monHoliday,
+            label: `${month}月 第${weekNum}週`
+          });
+        }
+
+        sat.setDate(sat.getDate() - 7);
+      }
+
+      // Sort by date ascending (oldest first)
+      weekends.reverse();
+
+      // Group by month
+      monthGroups = {};
+      weekends.forEach(w => {
+        const month = parseInt(w.sat.slice(5, 7));
+        if (!monthGroups[month]) monthGroups[month] = [];
+        monthGroups[month].push(w);
+      });
+
+      // Get all months sorted (ascending for display)
+      const months = Object.keys(monthGroups).sort((a, b) => a - b);
+
+      // Default to latest month
+      if (!selectedMonth || !monthGroups[selectedMonth]) {
+        selectedMonth = months[months.length - 1];
+      }
+
+      // Calculate profit for each month
+      const monthProfits = {};
+      globalData.daily.forEach(d => {
+        const m = parseInt(d.date.slice(5, 7));
+        if (!monthProfits[m]) monthProfits[m] = 0;
+        monthProfits[m] += d.profit;
+      });
+
+      // Render month selector buttons
+      let monthHtml = '';
+      months.forEach(m => {
+        const active = m == selectedMonth ? 'active' : '';
+        const profit = monthProfits[m] || 0;
+        const profitClass = profit >= 0 ? 'positive' : 'negative';
+        monthHtml += `<button class="month-btn ${active} ${profitClass}" data-month="${m}">${m}月</button>`;
+      });
+      monthSelectorEl.innerHTML = monthHtml;
+
+      // Month button click handler
+      monthSelectorEl.onclick = (e) => {
+        const btn = e.target.closest('.month-btn');
+        if (btn) {
+          selectedMonth = btn.dataset.month;
+          document.querySelectorAll('.month-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderWeekends();
+          // Hide daily card when switching months
+          document.getElementById('daily-card').style.display = 'none';
+        }
+      };
+
+      renderWeekends();
+
+      // Day button click handler (delegated)
+      selectorEl.onclick = (e) => {
+        const btn = e.target.closest('.day-btn');
+        if (btn && !btn.disabled) {
+          document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('daily-card').style.display = 'block';
+          renderDaily(btn.dataset.date);
+        }
+      };
+    }
+
+    function renderWeekends() {
+      const selectorEl = document.getElementById('weekend-selector');
+      let html = '';
+
+      if (monthGroups[selectedMonth]) {
+        monthGroups[selectedMonth].forEach(w => {
+          const weekNum = Math.ceil(parseInt(w.sat.slice(8, 10)) / 7);
+          const satBtn = renderDayButton(w.sat, w.satData, '土');
+          const sunBtn = renderDayButton(w.sun, w.sunData, '日');
+          const monBtn = w.mon ? renderDayButton(w.mon, w.monData, '祝') : '';
+
+          const gridCols = w.mon ? 'grid-template-columns: 1fr 1fr 1fr;' : '';
+          html += `
+            <div class="weekend-group">
+              <div class="weekend-label">第${weekNum}週</div>
+              <div class="weekend-buttons" style="${gridCols}">
+                ${satBtn}
+                ${sunBtn}
+                ${monBtn}
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      selectorEl.innerHTML = html;
+    }
+
+    function renderDayButton(dateStr, data, dow) {
+      const day = parseInt(dateStr.slice(8, 10));
+      if (!data) {
+        return `<button class="day-btn" disabled>
+          <div class="day-date">${day}(${dow})</div>
+          <div class="day-profit">---</div>
+        </button>`;
+      }
+      const profitClass = data.profit >= 0 ? 'positive' : 'negative';
+      const profitText = (data.profit >= 0 ? '+' : '') + data.profit.toLocaleString() + '円';
+      return `<button class="day-btn ${profitClass}" data-date="${dateStr}">
+        <div class="day-date">${day}(${dow})</div>
+        <div class="day-profit ${profitClass}">${profitText}</div>
+      </button>`;
+    }
+
+    function toggleExpand(el) {
+      const content = el.nextElementSibling;
+      const icon = el.querySelector('.expand-icon');
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+        icon.textContent = '▼';
+      } else {
+        content.style.display = 'none';
+        icon.textContent = '▶';
+      }
+    }
+
+    // Render daily results
+    // No hit: 馬名 / 単-100 複-100 / 武器 / 収-200
+    // Has hit: 馬名 券種-投資 当+利益 / 武器 / 他N点▶ / 収±レース全体
+    function renderDaily(date) {
+      const dayData = globalData.daily.find(d => d.date === date);
+      const bets = globalData.bets.filter(b => b.date === date);
+      const contentEl = document.getElementById('daily-content');
+
+      const profitClass = dayData.profit >= 0 ? 'positive' : 'negative';
+      const profitText = (dayData.profit >= 0 ? '+' : '') + dayData.profit.toLocaleString() + '円';
+
+      let html = `<div class="daily-header"><span class="daily-total ${profitClass}">${profitText}</span></div>`;
+
+      // Group bets by race
+      const races = {};
+      bets.forEach(b => {
+        if (!races[b.race]) races[b.race] = [];
+        races[b.race].push(b);
+      });
+
+      // Process each race
+      Object.entries(races).forEach(([race, raceBets]) => {
+        html += `<div class="race-block"><div class="race-name">${race}</div>`;
+
+        const hasHit = raceBets.some(b => b.payout > 0);
+        const raceProfit = raceBets.reduce((sum, b) => sum + (b.payout - b.amount), 0);
+        const raceProfitCls = raceProfit >= 0 ? 'win' : 'loss';
+        const raceProfitSign = raceProfit >= 0 ? '+' : '';
+
+        if (hasHit) {
+          // HIT: Show hit bets main, others collapsed, race total at end
+          const hitBets = raceBets.filter(b => b.payout > 0);
+          const missBets = raceBets.filter(b => b.payout === 0);
+
+          // Group hit bets by horse
+          const hitHorses = {};
+          hitBets.forEach(b => {
+            const key = b.horse || b.selection;
+            if (!hitHorses[key]) hitHorses[key] = { horse: key, weapon: b.weapon, bets: [] };
+            hitHorses[key].bets.push(b);
+          });
+
+          // Render hit horses
+          let hitTotal = 0;
+          Object.values(hitHorses).forEach(h => {
+            let line1Right = '';
+            h.bets.forEach(b => {
+              const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
+              const profit = b.payout - b.amount;
+              hitTotal += profit;
+              if (line1Right) line1Right += ' ';
+              line1Right += `${type}<span class="loss">-${b.amount}</span> 🎯<span class="win">+${profit.toLocaleString()}</span>`;
+            });
+            html += `<div class="row"><span class="left">${h.horse}</span><span class="right">${line1Right}</span></div>`;
+            if (h.weapon && h.weapon !== '-') {
+              html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
+            }
+          });
+
+          // Show miss bets collapsed (only if exists)
+          if (missBets.length > 0) {
+            // Hit subtotal (only show when there are miss bets too)
+            const hitTotalCls = hitTotal >= 0 ? 'win' : 'loss';
+            const hitTotalSign = hitTotal >= 0 ? '+' : '';
+            html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitTotalCls}">${hitTotalSign}${hitTotal.toLocaleString()}</span></span></div>`;
+
+            const missTotal = missBets.reduce((sum, b) => sum - b.amount, 0);
+            html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${missBets.length}点</span><span class="right"><span class="expand-icon">▶</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
+            html += `<div class="expand-content" style="display:none;">`;
+            missBets.forEach(b => {
+              const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
+              const name = b.horse || b.selection;
+              html += `<div class="row"><span class="left">${name}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
+            });
+            html += `</div>`;
+          }
+
+          // Race total
+          html += `<div class="row"><span class="left"></span><span class="right">収<span class="${raceProfitCls}">${raceProfitSign}${raceProfit.toLocaleString()}</span></span></div>`;
+
+        } else {
+          // NO HIT: Show each horse with 単-100 複-100 format
+          const tanpuku = raceBets.filter(b => b.betType === '単勝' || b.betType === '複勝');
+          const others = raceBets.filter(b => b.betType !== '単勝' && b.betType !== '複勝');
+
+          // Group tanpuku by horse
+          const horses = {};
+          tanpuku.forEach(b => {
+            const key = b.horse || b.selection;
+            if (!horses[key]) horses[key] = { horse: key, weapon: b.weapon, win: null, place: null };
+            if (b.betType === '単勝') horses[key].win = b;
+            else if (b.betType === '複勝') horses[key].place = b;
+          });
+
+          // Render each horse
+          let tanpukuTotal = 0;
+          Object.values(horses).forEach(h => {
+            let line1Right = '';
+
+            if (h.win) {
+              tanpukuTotal -= h.win.amount;
+              line1Right += `単<span class="loss">-${h.win.amount}</span>`;
+            }
+            if (h.place) {
+              tanpukuTotal -= h.place.amount;
+              if (line1Right) line1Right += ' ';
+              line1Right += `複<span class="loss">-${h.place.amount}</span>`;
+            }
+
+            html += `<div class="row"><span class="left">${h.horse}</span><span class="right">${line1Right}</span></div>`;
+            // Only show weapon line if weapon is meaningful
+            if (h.weapon && h.weapon !== '-') {
+              html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
+            }
+          });
+
+          // Render other bets collapsed (only if exists)
+          if (others.length > 0) {
+            // Tanpuku subtotal (only show when there are others too)
+            if (Object.keys(horses).length > 0) {
+              html += `<div class="row"><span class="left"></span><span class="right">収<span class="loss">${tanpukuTotal.toLocaleString()}</span></span></div>`;
+            }
+
+            const othersTotal = others.reduce((sum, b) => sum - b.amount, 0);
+            html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${others.length}点</span><span class="right"><span class="expand-icon">▶</span>収<span class="loss">${othersTotal.toLocaleString()}</span></span></div>`;
+            html += `<div class="expand-content" style="display:none;">`;
+            others.forEach(b => {
+              const name = b.horse || b.selection;
+              html += `<div class="row"><span class="left">${name}</span><span class="right">${b.betType}<span class="loss">-${b.amount}</span></span></div>`;
+            });
+            html += `</div>`;
+          }
+
+          // Race total
+          html += `<div class="row"><span class="left"></span><span class="right">収<span class="${raceProfitCls}">${raceProfitSign}${raceProfit.toLocaleString()}</span></span></div>`;
+        }
+
+        html += `</div>`;
+      });
+
+      contentEl.innerHTML = html;
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

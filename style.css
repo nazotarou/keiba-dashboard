@@ -1,0 +1,419 @@
+/* Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #000;
+  color: #eee;
+  min-height: 100vh;
+  padding: 16px;
+}
+.container { max-width: 400px; margin: 0 auto; }
+
+/* Cards */
+.card {
+  background: #111;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+.card-title {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.card-header .card-title { margin-bottom: 0; }
+
+/* Month selector */
+.month-selector {
+  display: flex;
+  gap: 6px;
+}
+.month-btn {
+  padding: 6px 12px;
+  background: #222;
+  border: 2px solid #333;
+  border-radius: 6px;
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+}
+.month-btn:hover {
+  background: #333;
+}
+.month-btn.positive {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+.month-btn.negative {
+  border-color: #f87171;
+  color: #f87171;
+}
+.month-btn.active {
+  font-weight: bold;
+}
+.month-btn.active.positive {
+  background: #4ade80;
+  color: #000;
+}
+.month-btn.active.negative {
+  background: #f87171;
+  color: #000;
+}
+
+/* Summary */
+.summary { text-align: center; }
+.profit {
+  font-size: 44px;
+  font-weight: bold;
+  color: #4ade80;
+}
+.profit.negative { color: #f87171; }
+.roi {
+  font-size: 20px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+.updated {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 12px;
+}
+
+/* Monthly */
+.monthly-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.monthly-label {
+  font-size: 16px;
+  color: #94a3b8;
+}
+.monthly-profit {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4ade80;
+}
+.monthly-profit.negative { color: #f87171; }
+.monthly-roi {
+  font-size: 14px;
+  color: #64748b;
+  margin-left: 8px;
+}
+
+/* Weekend selector */
+.weekend-group { margin-bottom: 12px; }
+.weekend-label {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+.weekend-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.day-btn {
+  padding: 12px 8px;
+  background: #111;
+  border: 2px solid #333;
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+.day-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  border-color: #111;
+}
+.day-btn.positive { border-color: #4ade80; }
+.day-btn.negative { border-color: #f87171; }
+.day-btn.positive.active { background: rgba(74, 222, 128, 0.15); }
+.day-btn.negative.active { background: rgba(248, 113, 113, 0.15); }
+.day-btn .day-date {
+  font-weight: bold;
+  color: #eee;
+}
+.day-btn .day-profit {
+  font-size: 12px;
+  margin-top: 4px;
+}
+.day-btn .day-profit.positive { color: #4ade80; }
+.day-btn .day-profit.negative { color: #f87171; }
+
+/* Chart */
+.chart-title {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+/* Detail link */
+.detail-link {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  color: #4ade80;
+  text-decoration: none;
+  font-size: 14px;
+}
+.detail-link:hover { text-decoration: underline; }
+
+/* ========================================
+   Daily Results - Unified Design
+   ======================================== */
+
+/* Header */
+.daily-header {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1e293b;
+}
+.daily-total {
+  font-size: 24px;
+  font-weight: bold;
+}
+.daily-total.positive { color: #4ade80; }
+.daily-total.negative { color: #f87171; }
+
+/* Race Block */
+.race-block {
+  padding: 12px 0;
+  border-bottom: 1px solid #1e293b;
+}
+.race-block:last-child { border-bottom: none; }
+.race-name {
+  color: #64748b;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+/* Row - Basic building block */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 0;
+  font-size: 13px;
+}
+.row .left {
+  color: #eee;
+}
+.row .left.sub {
+  color: #64748b;
+  font-size: 11px;
+}
+.row .right {
+  font-size: 12px;
+  text-align: right;
+}
+
+/* Colors */
+.win { color: #4ade80; }
+.loss { color: #f87171; }
+
+/* Expand trigger */
+.row.expand-trigger {
+  cursor: pointer;
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px solid #1e293b;
+}
+.row.expand-trigger:hover { opacity: 0.8; }
+.expand-icon {
+  font-size: 10px;
+  margin-left: 6px;
+}
+
+/* Expand content */
+.expand-content {
+  padding-left: 12px;
+  border-left: 2px solid #333;
+  margin-left: 4px;
+  margin-top: 6px;
+}
+.expand-content .row {
+  font-size: 12px;
+}
+.expand-content .row .left {
+  color: #94a3b8;
+}
+
+/* ========================================
+   Detail Page
+   ======================================== */
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  color: #4ade80;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* Year selector */
+.year-selector {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.year-btn {
+  padding: 8px 20px;
+  background: #222;
+  border: 2px solid #4ade80;
+  border-radius: 6px;
+  color: #4ade80;
+  font-size: 14px;
+  cursor: pointer;
+}
+.year-btn:hover { background: #333; }
+.year-btn.active {
+  background: #4ade80;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Annual Summary */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.summary-label {
+  font-size: 11px;
+  color: #64748b;
+}
+.summary-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #eee;
+}
+.summary-value.positive { color: #4ade80; }
+.summary-value.negative { color: #f87171; }
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table th,
+.data-table td {
+  padding: 8px 4px;
+  text-align: right;
+}
+.data-table th {
+  color: #64748b;
+  font-weight: normal;
+  border-bottom: 1px solid #333;
+}
+.data-table td {
+  color: #eee;
+  border-bottom: 1px solid #1e293b;
+}
+.data-table th:first-child,
+.data-table td:first-child {
+  text-align: left;
+}
+.data-table .positive { color: #4ade80; }
+.data-table .negative { color: #f87171; }
+
+/* Weapon Stats */
+.weapon-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.weapon-card {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.weapon-name {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.weapon-roi {
+  font-size: 20px;
+  font-weight: bold;
+}
+.weapon-detail {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 4px;
+}
+.weapon-breakdown {
+  margin-top: 8px;
+}
+.weapon-breakdown summary {
+  cursor: pointer;
+  color: #64748b;
+  font-size: 12px;
+  padding: 8px 0;
+}
+.weapon-breakdown summary:hover { color: #eee; }
+
+/* Details (collapsible) */
+details {
+  border-bottom: 1px solid #1e293b;
+}
+details:last-child { border-bottom: none; }
+details summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  cursor: pointer;
+  font-size: 14px;
+  list-style: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: '▶';
+  font-size: 10px;
+  margin-right: 8px;
+  color: #64748b;
+}
+details[open] summary::before { content: '▼'; }
+
+.month-detail > summary {
+  font-weight: bold;
+}
+.month-days {
+  padding-left: 12px;
+}
+.day-detail {
+  border-bottom: none;
+}
+.day-detail summary {
+  font-size: 13px;
+  padding: 8px 0;
+}
+.day-bets {
+  padding-left: 8px;
+  padding-bottom: 8px;
+}
+.day-bets .race-block {
+  padding: 8px 0;
+}
+.day-bets .race-name {
+  font-size: 10px;
+}

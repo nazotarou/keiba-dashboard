@@ -1,0 +1,39 @@
+{
+  "lastUpdated": "2025-12-28",
+  "summary": {
+    "totalInvest": 2000,
+    "totalPayout": 0,
+    "totalProfit": -2000,
+    "roi": 0
+  },
+  "monthly": [
+    {
+      "month": "2025-12",
+      "invest": 2000,
+      "payout": 0,
+      "profit": -2000,
+      "roi": 0
+    }
+  ],
+  "daily": [
+    {
+      "date": "2025-12-28",
+      "dayOfWeek": "日",
+      "invest": 2000,
+      "payout": 0,
+      "profit": -2000,
+      "cumulative": -2000,
+      "note": "有馬記念"
+    }
+  ],
+  "bets": [
+    {"date":"2025-12-28","race":"中山11R","betType":"単勝","selection":"06","horse":"メイショウタバル","weapon":"-","amount":500,"payout":0},
+    {"date":"2025-12-28","race":"中山11R","betType":"単勝","selection":"11","horse":"ミステリーウェイ","weapon":"-","amount":200,"payout":0},
+    {"date":"2025-12-28","race":"中山11R","betType":"単勝","selection":"13","horse":"アドマイヤテラ","weapon":"-","amount":100,"payout":0},
+    {"date":"2025-12-28","race":"中山11R","betType":"ワイド","selection":"06-11","horse":"","weapon":"-","amount":300,"payout":0},
+    {"date":"2025-12-28","race":"中山11R","betType":"ワイド","selection":"06-13","horse":"","weapon":"-","amount":200,"payout":0},
+    {"date":"2025-12-28","race":"中山11R","betType":"3連複","selection":"06-11-13","horse":"","weapon":"-","amount":700,"payout":0}
+  ],
+  "weaponStats": {},
+  "weaponBreakdown": []
+}
