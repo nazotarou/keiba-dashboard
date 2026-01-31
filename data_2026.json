@@ -82,6 +82,17 @@
   ],
   "bets": [
     {
+      "date": "2026-01-04",
+      "race": "京都11R",
+      "number": 15,
+      "horse": "ブエナオンダ",
+      "weapon": "-",
+      "betType": "単勝",
+      "amount": 500,
+      "result": "**1着**",
+      "payout": 3900
+    },
+    {
       "date": "2026-01-11",
       "race": "中山8R",
       "number": 5,
