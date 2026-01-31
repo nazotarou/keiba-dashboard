@@ -49,7 +49,7 @@ def parse_race_key(race_key: str) -> tuple:
 
     date_str = match.group(1).replace('-', '')  # 20260105
     place_name = match.group(2)  # 中山
-    race_num = int(match.group(3))  # 5
+    race_num = match.group(3).zfill(2)  # "5" -> "05" (ゼロパディング)
 
     jyo_code = JYO_CODE.get(place_name)
     if not jyo_code:
@@ -77,7 +77,7 @@ def extract_horse_numbers(bets: list) -> set:
     return horse_nums
 
 
-def get_horse_names(conn, race_date: str, jyo_code: str, race_num: int, horse_nums: set) -> dict:
+def get_horse_names(conn, race_date: str, jyo_code: str, race_num: str, horse_nums: set) -> dict:
     """
     DBから馬名を取得してhorsesマスタを返す
     """
