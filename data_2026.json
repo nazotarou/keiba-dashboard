@@ -178,18 +178,6 @@
       "payout": 0
     },
     {
-      "date": "2026-01-04",
-      "race": "項目",
-      "number": 0,
-      "horse": "",
-      "selection": "金額",
-      "weapon": "",
-      "betType": "",
-      "amount": 0,
-      "result": "",
-      "payout": 0
-    },
-    {
       "date": "2026-01-11",
       "race": "中山8R",
       "number": 5,
@@ -271,18 +259,6 @@
       "betType": "-",
       "amount": 400,
       "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-11",
-      "race": "項目",
-      "number": 0,
-      "horse": "",
-      "selection": "金額",
-      "weapon": "",
-      "betType": "",
-      "amount": 0,
-      "result": "",
       "payout": 0
     },
     {
@@ -403,18 +379,6 @@
       "betType": "複勝",
       "amount": 100,
       "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-12",
-      "race": "項目",
-      "number": 0,
-      "horse": "",
-      "selection": "金額",
-      "weapon": "",
-      "betType": "",
-      "amount": 0,
-      "result": "",
       "payout": 0
     },
     {
@@ -766,18 +730,6 @@
       "payout": 300
     },
     {
-      "date": "2026-01-18",
-      "race": "項目",
-      "number": 0,
-      "horse": "",
-      "selection": "金額",
-      "weapon": "",
-      "betType": "",
-      "amount": 0,
-      "result": "",
-      "payout": 0
-    },
-    {
       "date": "2026-01-24",
       "race": "小倉3R",
       "number": 3,
@@ -934,18 +886,6 @@
       "payout": 0
     },
     {
-      "date": "2026-01-24",
-      "race": "項目",
-      "number": 0,
-      "horse": "",
-      "selection": "金額",
-      "weapon": "",
-      "betType": "",
-      "amount": 0,
-      "result": "",
-      "payout": 0
-    },
-    {
       "date": "2026-01-25",
       "race": "小倉1R",
       "number": 4,
@@ -1015,18 +955,6 @@
       "betType": "複勝",
       "amount": 100,
       "result": "着外",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-25",
-      "race": "項目",
-      "number": 0,
-      "horse": "",
-      "selection": "金額",
-      "weapon": "",
-      "betType": "",
-      "amount": 0,
-      "result": "",
       "payout": 0
     },
     {
@@ -1159,18 +1087,6 @@
       "betType": "単複",
       "amount": 200,
       "result": "着外",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-31",
-      "race": "項目",
-      "number": 0,
-      "horse": "",
-      "selection": "金額",
-      "weapon": "",
-      "betType": "",
-      "amount": 0,
-      "result": "",
       "payout": 0
     }
   ],
