@@ -629,9 +629,10 @@
               html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${others.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${othersTotal.toLocaleString()}</span></span></div>`;
               html += `<div class="expand-content">`;
               others.forEach(b => {
+                const type = getBetTypeShort(b.betType);
                 const name = b.horse || b.selection;
                 const numStr = b.number ? b.number + ' ' : '';
-                html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${b.betType}<span class="loss">-${b.amount}</span></span></div>`;
+                html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
               });
               html += `</div>`;
             }

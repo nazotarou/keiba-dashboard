@@ -366,6 +366,15 @@
       return String(num);
     }
 
+    // Helper: Convert bet type to short form
+    function toBetTypeShort(type) {
+      const map = {
+        '単勝': '単', '複勝': '複', '馬連': '連', '馬単': '馬単',
+        'ワイド': 'ワ', '3連複': '3複', '3連単': '3単', '枠連': '枠'
+      };
+      return map[type] || type;
+    }
+
     // Helper: Get horse display string from selection and horses map
     // "06" -> "⑥ メイショウタバル"
     // "06-11" -> "⑥-⑪ メイショウタバル/ミステリーウェイ"
@@ -421,7 +430,7 @@
             // Render hit bets
             let hitTotal = 0;
             hitBets.forEach(b => {
-              const type = b.type === '単勝' ? '単' : b.type === '複勝' ? '複' : b.type;
+              const type = toBetTypeShort(b.type);
               const profit = b.payout - b.amount;
               hitTotal += profit;
               const display = getHorseDisplay(b.selection, horses);
@@ -441,7 +450,7 @@
               html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${missBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
               html += `<div class="expand-content">`;
               missBets.forEach(b => {
-                const type = b.type === '単勝' ? '単' : b.type === '複勝' ? '複' : b.type;
+                const type = toBetTypeShort(b.type);
                 const display = getHorseDisplay(b.selection, horses);
                 html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
               });
@@ -493,8 +502,9 @@
               html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${others.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${othersTotal.toLocaleString()}</span></span></div>`;
               html += `<div class="expand-content">`;
               others.forEach(b => {
+                const type = toBetTypeShort(b.type);
                 const display = getHorseDisplay(b.selection, horses);
-                html += `<div class="row"><span class="left">${display}</span><span class="right">${b.type}<span class="loss">-${b.amount}</span></span></div>`;
+                html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
               });
               html += `</div>`;
             }
@@ -540,7 +550,7 @@
             Object.values(hitHorses).forEach(h => {
               let line1Right = '';
               h.bets.forEach(b => {
-                const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
+                const type = toBetTypeShort(b.betType);
                 const profit = b.payout - b.amount;
                 hitTotal += profit;
                 if (line1Right) line1Right += ' ';
@@ -562,7 +572,7 @@
               html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${missBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
               html += `<div class="expand-content">`;
               missBets.forEach(b => {
-                const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
+                const type = toBetTypeShort(b.betType);
                 const name = b.horse || b.selection;
                 const num = b.number || ((b.betType === '単勝' || b.betType === '複勝') ? b.selection : null);
                 const numStr = num ? num + ' ' : '';
@@ -614,9 +624,10 @@
               html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${others.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${othersTotal.toLocaleString()}</span></span></div>`;
               html += `<div class="expand-content">`;
               others.forEach(b => {
+                const type = toBetTypeShort(b.betType);
                 const name = b.horse || b.selection;
                 const numStr = b.number ? b.number + ' ' : '';
-                html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${b.betType}<span class="loss">-${b.amount}</span></span></div>`;
+                html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
               });
               html += `</div>`;
             }
