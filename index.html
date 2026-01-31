@@ -357,20 +357,29 @@
       }
     }
 
+    // Helper: Convert number to circled number ①②③...
+    function toCircledNum(n) {
+      const num = parseInt(n, 10);
+      if (num >= 1 && num <= 20) {
+        return String.fromCodePoint(0x2460 + num - 1); // ① is U+2460
+      }
+      return String(num);
+    }
+
     // Helper: Get horse display string from selection and horses map
-    // "06" -> "6 メイショウタバル"
-    // "06-11" -> "6-11 メイショウタバル/ミステリーウェイ"
+    // "06" -> "⑥ メイショウタバル"
+    // "06-11" -> "⑥-⑪ メイショウタバル/ミステリーウェイ"
     function getHorseDisplay(selection, horses) {
       if (!selection) return '';
       const nums = String(selection).split('-');
-      const displayNums = nums.map(n => parseInt(n, 10) || n);
+      const circledNums = nums.map(n => toCircledNum(n));
       // Try both zero-padded and non-padded keys
       const names = nums.map(n => {
         if (!horses) return '?';
         const padded = n.padStart(2, '0');
         return horses[n] || horses[padded] || horses[String(parseInt(n, 10))] || '?';
       });
-      return displayNums.join('-') + ' ' + names.join('/');
+      return circledNums.join('-') + ' ' + names.join('/');
     }
 
     // Render daily results
