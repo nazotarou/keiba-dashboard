@@ -376,35 +376,32 @@
     }
 
     // Helper: Get horse display string from selection and horses map
-    // "06" -> "⑥ メイショウタバル"
-    // "06-11" -> "⑥-⑪ メイショウタバル/ミステリーウェイ"
+    // 単勝 9 → ⑨タマモプルメリア
+    // 馬連 3-15 → ③キープカルム/⑮ブエナオンダ
+    // 枠連 5-5 → ⑤-⑤ ⑨タマモプルメリア/⑩オンザライン
     function getHorseDisplay(selection, horses, betType) {
       if (!selection) return '';
+      if (!horses || Object.keys(horses).length === 0) return selection;
 
       const nums = String(selection).split('-');
-      const circledSelection = nums.map(n => toCircledNum(n)).join('-');
 
-      // horses が空なら selection のみ返す
-      if (!horses || Object.keys(horses).length === 0) {
-        return circledSelection;
-      }
-
-      // 枠連の場合: horses には枠内の馬が入っている（build.pyが対応済み）
-      // 馬番でソートして全表示
+      // 枠連の場合: 枠番を丸数字で表示 + horses の全馬を表示
       if (betType === '枠連') {
-        const keys = Object.keys(horses).sort((a, b) => parseInt(a) - parseInt(b));
-        const names = keys.map(k => toCircledNum(k) + horses[k]).join('/');
-        return circledSelection + ' ' + names;
+        const circled = nums.map(n => toCircledNum(n)).join('-');
+        const horseList = Object.keys(horses)
+          .sort((a, b) => parseInt(a) - parseInt(b))
+          .map(k => toCircledNum(k) + horses[k])
+          .join('/');
+        return circled + ' ' + horseList;
       }
 
-      // その他の券種: selection から馬番を取得して表示
-      const horseNames = nums.map(n => {
+      // その他の券種: selection の馬番から馬名を取得
+      const parts = nums.map(n => {
         const padded = n.padStart(2, '0');
         const name = horses[padded] || horses[n] || horses[String(parseInt(n, 10))];
-        return name ? (toCircledNum(n) + name) : toCircledNum(n) + '?';
-      }).join('/');
-
-      return circledSelection + ' ' + horseNames;
+        return toCircledNum(n) + (name || '?');
+      });
+      return parts.join('/');
     }
 
     // Render daily results
