@@ -405,7 +405,7 @@
           const hitHorses = {};
           hitBets.forEach(b => {
             const key = b.horse || b.selection;
-            if (!hitHorses[key]) hitHorses[key] = { horse: key, weapon: b.weapon, bets: [] };
+            if (!hitHorses[key]) hitHorses[key] = { horse: key, number: b.number, weapon: b.weapon, bets: [] };
             hitHorses[key].bets.push(b);
           });
 
@@ -420,7 +420,8 @@
               if (line1Right) line1Right += ' ';
               line1Right += `${type}<span class="loss">-${b.amount}</span> 🎯<span class="win">+${profit.toLocaleString()}</span>`;
             });
-            html += `<div class="row"><span class="left">${h.horse}</span><span class="right">${line1Right}</span></div>`;
+            const numStr = h.number ? h.number + ' ' : '';
+            html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right">${line1Right}</span></div>`;
             if (h.weapon && h.weapon !== '-') {
               html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
             }
@@ -439,7 +440,8 @@
             missBets.forEach(b => {
               const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
               const name = b.horse || b.selection;
-              html += `<div class="row"><span class="left">${name}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
+              const numStr = b.number ? b.number + ' ' : '';
+              html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
             });
             html += `</div>`;
           }
@@ -456,7 +458,7 @@
           const horses = {};
           tanpuku.forEach(b => {
             const key = b.horse || b.selection;
-            if (!horses[key]) horses[key] = { horse: key, weapon: b.weapon, win: null, place: null };
+            if (!horses[key]) horses[key] = { horse: key, number: b.number, weapon: b.weapon, win: null, place: null };
             if (b.betType === '単勝') horses[key].win = b;
             else if (b.betType === '複勝') horses[key].place = b;
           });
@@ -476,7 +478,8 @@
               line1Right += `複<span class="loss">-${h.place.amount}</span>`;
             }
 
-            html += `<div class="row"><span class="left">${h.horse}</span><span class="right">${line1Right}</span></div>`;
+            const numStr = h.number ? h.number + ' ' : '';
+            html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right">${line1Right}</span></div>`;
             // Only show weapon line if weapon is meaningful
             if (h.weapon && h.weapon !== '-') {
               html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
@@ -495,7 +498,8 @@
             html += `<div class="expand-content" style="display:none;">`;
             others.forEach(b => {
               const name = b.horse || b.selection;
-              html += `<div class="row"><span class="left">${name}</span><span class="right">${b.betType}<span class="loss">-${b.amount}</span></span></div>`;
+              const numStr = b.number ? b.number + ' ' : '';
+              html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${b.betType}<span class="loss">-${b.amount}</span></span></div>`;
             });
             html += `</div>`;
           }
