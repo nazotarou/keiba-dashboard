@@ -381,15 +381,21 @@
     // "06-11" -> "⑥-⑪ メイショウタバル/ミステリーウェイ"
     function getHorseDisplay(selection, horses) {
       if (!selection) return '';
+
+      // selection を丸数字に変換（枠番・馬番問わず）
       const nums = String(selection).split('-');
-      const circledNums = nums.map(n => toCircledNum(n));
-      // Try both zero-padded and non-padded keys
-      const names = nums.map(n => {
-        if (!horses) return '?';
-        const padded = n.padStart(2, '0');
-        return horses[n] || horses[padded] || horses[String(parseInt(n, 10))] || '?';
-      });
-      return circledNums.join('-') + ' ' + names.join('/');
+      const circledSelection = nums.map(n => toCircledNum(n)).join('-');
+
+      // horses が空なら selection のみ返す
+      if (!horses || Object.keys(horses).length === 0) {
+        return circledSelection;
+      }
+
+      // horses のキーを数値でソートして「⑨馬名/⑩馬名」形式で表示
+      const sortedKeys = Object.keys(horses).sort((a, b) => parseInt(a) - parseInt(b));
+      const horseNames = sortedKeys.map(k => toCircledNum(k) + horses[k]).join('/');
+
+      return circledSelection + ' ' + horseNames;
     }
 
     // Helper: Get bet type abbreviation
