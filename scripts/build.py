@@ -58,23 +58,81 @@ def parse_race_key(race_key: str) -> tuple:
     return date_str, jyo_code, race_num
 
 
-def extract_horse_numbers(bets: list) -> set:
+def extract_horse_numbers(bets: list) -> tuple:
     """
-    bets配列からselectionを解析して馬番のセットを返す
+    bets配列からselectionを解析して (馬番セット, 枠番セット) を返す
+    枠連は枠番として別途扱う
     """
     horse_nums = set()
+    waku_nums = set()
+
     for bet in bets:
         selection = bet.get('selection', '')
+        bet_type = bet.get('type', '')
         if not selection:
             continue
-        # ハイフン区切りで分割（馬連、3連複等）
-        nums = str(selection).split('-')
-        for num in nums:
-            # 数字のみ抽出
-            n = re.sub(r'\D', '', num)
-            if n:
-                horse_nums.add(n.zfill(2))  # ゼロパディング
-    return horse_nums
+
+        if bet_type == '枠連':
+            # 枠連は枠番として扱う
+            nums = str(selection).split('-')
+            for num in nums:
+                n = re.sub(r'\D', '', num)
+                if n:
+                    waku_nums.add(n)  # 枠番は1桁のまま
+        else:
+            # 通常の馬番として処理
+            nums = str(selection).split('-')
+            for num in nums:
+                n = re.sub(r'\D', '', num)
+                if n:
+                    horse_nums.add(n.zfill(2))  # ゼロパディング
+
+    return horse_nums, waku_nums
+
+
+def get_horses_by_waku(conn, race_date: str, jyo_code: str, race_num: str, waku_nums: set) -> dict:
+    """
+    枠番から馬名を取得してhorsesマスタを返す
+    wakubanカラムを使用（Phase 1で追加される）
+    """
+    if not waku_nums or not conn:
+        return {}
+
+    cursor = conn.cursor()
+    horses = {}
+
+    for waku in waku_nums:
+        try:
+            cursor.execute("""
+                SELECT umaban, bamei FROM race_horses
+                WHERE race_date = ? AND jyo_code = ? AND race_num = ?
+                  AND wakuban = ?
+                ORDER BY CAST(umaban AS INTEGER)
+            """, (race_date, jyo_code, race_num, waku))
+            rows = cursor.fetchall()
+
+            for umaban, bamei in rows:
+                key = str(umaban).zfill(2)
+                horses[key] = bamei
+        except sqlite3.Error as e:
+            # wakubanカラムがまだ存在しない場合のフォールバック
+            print(f"  Warning: wakuban query failed: {e}")
+            # フォールバック: 全馬を取得（最悪のケース）
+            try:
+                cursor.execute("""
+                    SELECT umaban, bamei FROM race_horses
+                    WHERE race_date = ? AND jyo_code = ? AND race_num = ?
+                    ORDER BY CAST(umaban AS INTEGER)
+                """, (race_date, jyo_code, race_num))
+                rows = cursor.fetchall()
+                for umaban, bamei in rows:
+                    key = str(umaban).zfill(2)
+                    horses[key] = bamei
+            except sqlite3.Error:
+                pass
+            break
+
+    return horses
 
 
 def get_horse_names(conn, race_date: str, jyo_code: str, race_num: str, horse_nums: set) -> dict:
@@ -154,14 +212,24 @@ def build():
             print(f"  Skip: {race_key} (parse failed)")
             continue
 
-        # 馬番を抽出
-        horse_nums = extract_horse_numbers(bets)
-        if not horse_nums:
+        # 馬番と枠番を抽出
+        horse_nums, waku_nums = extract_horse_numbers(bets)
+        if not horse_nums and not waku_nums:
             continue
 
         # DBから馬名を取得
         if conn:
-            horses = get_horse_names(conn, race_date, jyo_code, race_num, horse_nums)
+            horses = {}
+
+            # 馬番から取得（通常の券種）
+            if horse_nums:
+                horses.update(get_horse_names(conn, race_date, jyo_code, race_num, horse_nums))
+
+            # 枠番から取得（枠連）
+            if waku_nums:
+                waku_horses = get_horses_by_waku(conn, race_date, jyo_code, race_num, waku_nums)
+                horses.update(waku_horses)
+
             if horses:
                 race_data['horses'] = horses
                 updated_count += 1

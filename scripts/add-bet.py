@@ -52,6 +52,78 @@ def get_horse_names(race_date: str, jyo_code: str, race_num: int) -> dict:
         return {}
 
 
+def calc_wakuban(umaban: int, tosu: int) -> int:
+    """馬番から枠番を計算（中央競馬8枠制）"""
+    if tosu <= 8:
+        return umaban
+
+    # 9-16頭: 後ろの枠から2頭ずつ
+    if tosu <= 16:
+        # 2頭になる最初の枠 (例: 10頭→7枠から、16頭→1枠から)
+        double_start = 9 - (tosu - 8)
+        if umaban < double_start:
+            return umaban
+        else:
+            return double_start + (umaban - double_start) // 2
+
+    # 17頭: 1-7枠2頭、8枠3頭
+    if tosu == 17:
+        if umaban <= 14:
+            return (umaban + 1) // 2
+        else:
+            return 8
+
+    # 18頭: 1-7枠2頭、8枠4頭
+    if tosu == 18:
+        if umaban <= 14:
+            return (umaban + 1) // 2
+        else:
+            return 8
+
+    return 8
+
+
+def get_horses_by_waku(race_date: str, jyo_code: str, race_num: int, waku: int) -> list:
+    """枠番から該当馬をDBで取得"""
+    if not DB_PATH.exists():
+        return []
+
+    try:
+        conn = sqlite3.connect(str(DB_PATH))
+        cursor = conn.cursor()
+
+        # まずwakubanカラムで検索を試みる
+        cursor.execute("""
+            SELECT umaban, bamei, wakuban FROM race_horses
+            WHERE race_date = ? AND jyo_code = ? AND race_num = ?
+            ORDER BY CAST(umaban AS INTEGER)
+        """, (race_date, jyo_code, race_num))
+        rows = cursor.fetchall()
+        conn.close()
+
+        if not rows:
+            return []
+
+        # wakubanカラムにデータがある場合
+        has_wakuban = any(row[2] for row in rows)
+        if has_wakuban:
+            return [(row[0].zfill(2), row[1]) for row in rows if row[2] and int(row[2]) == waku]
+
+        # wakubanがない場合、頭数から計算
+        tosu = len(rows)
+        result = []
+        for row in rows:
+            umaban = int(row[0])
+            calculated_waku = calc_wakuban(umaban, tosu)
+            if calculated_waku == waku:
+                result.append((row[0].zfill(2), row[1]))
+        return result
+
+    except Exception as e:
+        print(f"  ⚠️ DB照会エラー: {e}")
+        return []
+
+
 def validate_date(date_str: str) -> bool:
     """日付バリデーション"""
     try:
@@ -253,10 +325,23 @@ def main():
     # 馬名表示
     sel_nums = selection.split("-")
     sel_names = []
-    for num in sel_nums:
-        padded = num.zfill(2)
-        name = horses.get(padded, horses.get(num, "?"))
-        sel_names.append(name)
+
+    if bet_type == "枠連":
+        # 枠連の場合、枠番から該当馬を取得
+        for waku in sel_nums:
+            waku_int = int(waku)
+            horses_in_waku = get_horses_by_waku(race_date, jyo_code, race_num, waku_int)
+            if horses_in_waku:
+                names = [h[1] for h in horses_in_waku]
+                sel_names.append(f"{waku}枠({'/'.join(names)})")
+            else:
+                sel_names.append(f"{waku}枠(?)")
+    else:
+        # 通常の馬番
+        for num in sel_nums:
+            padded = num.zfill(2)
+            name = horses.get(padded, horses.get(num, "?"))
+            sel_names.append(name)
 
     print(f"  → {' / '.join(sel_names)}")
 
@@ -327,12 +412,22 @@ def main():
         }
 
     # horsesに追加
-    for num in sel_nums:
-        padded = num.zfill(2)
-        if padded not in data["races"][race_key]["horses"]:
-            name = horses.get(padded, horses.get(num, ""))
-            if name:
-                data["races"][race_key]["horses"][padded] = name
+    if bet_type == "枠連":
+        # 枠連の場合、枠番に対応する全馬をhorsesに格納
+        for waku in sel_nums:
+            waku_int = int(waku)
+            horses_in_waku = get_horses_by_waku(race_date, jyo_code, race_num, waku_int)
+            for umaban, bamei in horses_in_waku:
+                if umaban not in data["races"][race_key]["horses"]:
+                    data["races"][race_key]["horses"][umaban] = bamei
+    else:
+        # 通常の馬番
+        for num in sel_nums:
+            padded = num.zfill(2)
+            if padded not in data["races"][race_key]["horses"]:
+                name = horses.get(padded, horses.get(num, ""))
+                if name:
+                    data["races"][race_key]["horses"][padded] = name
 
     # ベット追加
     data["races"][race_key]["bets"].append({

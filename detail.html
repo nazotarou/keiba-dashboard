@@ -367,7 +367,6 @@
       }
     }
 
-    // Helper: Get horse display string from selection and horses map
     // Helper: Convert number to circled number ①②③...
     function toCircledNum(n) {
       const num = parseInt(n, 10);
@@ -377,12 +376,12 @@
       return String(num);
     }
 
+    // Helper: Get horse display string from selection and horses map
     // "06" -> "⑥ メイショウタバル"
     // "06-11" -> "⑥-⑪ メイショウタバル/ミステリーウェイ"
-    function getHorseDisplay(selection, horses) {
+    function getHorseDisplay(selection, horses, betType) {
       if (!selection) return '';
 
-      // selection を丸数字に変換（枠番・馬番問わず）
       const nums = String(selection).split('-');
       const circledSelection = nums.map(n => toCircledNum(n)).join('-');
 
@@ -391,9 +390,20 @@
         return circledSelection;
       }
 
-      // horses のキーを数値でソートして「⑨馬名/⑩馬名」形式で表示
-      const sortedKeys = Object.keys(horses).sort((a, b) => parseInt(a) - parseInt(b));
-      const horseNames = sortedKeys.map(k => toCircledNum(k) + horses[k]).join('/');
+      // 枠連の場合: horses には枠内の馬が入っている（build.pyが対応済み）
+      // 馬番でソートして全表示
+      if (betType === '枠連') {
+        const keys = Object.keys(horses).sort((a, b) => parseInt(a) - parseInt(b));
+        const names = keys.map(k => toCircledNum(k) + horses[k]).join('/');
+        return circledSelection + ' ' + names;
+      }
+
+      // その他の券種: selection から馬番を取得して表示
+      const horseNames = nums.map(n => {
+        const padded = n.padStart(2, '0');
+        const name = horses[padded] || horses[n] || horses[String(parseInt(n, 10))];
+        return name ? (toCircledNum(n) + name) : toCircledNum(n) + '?';
+      }).join('/');
 
       return circledSelection + ' ' + horseNames;
     }
@@ -444,7 +454,7 @@
             let hitTotal = 0;
             hitBets.forEach(b => {
               const type = getBetTypeShort(b.type || b.betType);
-              const display = getHorseDisplay(b.selection, horses);
+              const display = getHorseDisplay(b.selection, horses, b.type || b.betType);
               const profit = b.payout - b.amount;
               hitTotal += profit;
               html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span> 🎯<span class="win">+${profit.toLocaleString()}</span></span></div>`;
@@ -463,7 +473,7 @@
               html += `<div class="expand-content">`;
               missBets.forEach(b => {
                 const type = getBetTypeShort(b.type || b.betType);
-                const display = getHorseDisplay(b.selection, horses);
+                const display = getHorseDisplay(b.selection, horses, b.type || b.betType);
                 html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
               });
               html += `</div>`;
@@ -497,7 +507,7 @@
                 if (line1Right) line1Right += ' ';
                 line1Right += `複<span class="loss">-${g.place.amount}</span>`;
               }
-              const display = getHorseDisplay(g.selection, horses);
+              const display = getHorseDisplay(g.selection, horses, g.win ? (g.win.type || g.win.betType) : (g.place.type || g.place.betType));
               html += `<div class="row"><span class="left">${display}</span><span class="right">${line1Right}</span></div>`;
               if (g.weapon && g.weapon !== '-') {
                 html += `<div class="row"><span class="left sub">${g.weapon}</span><span class="right"></span></div>`;
@@ -514,7 +524,7 @@
               html += `<div class="expand-content">`;
               others.forEach(b => {
                 const type = getBetTypeShort(b.type || b.betType);
-                const display = getHorseDisplay(b.selection, horses);
+                const display = getHorseDisplay(b.selection, horses, b.type || b.betType);
                 html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
               });
               html += `</div>`;

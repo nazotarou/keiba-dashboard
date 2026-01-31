@@ -60,11 +60,27 @@ def validate_selection(selection: str, bet_type: str) -> Tuple[bool, str]:
     if ',' in sel_str or '番' in sel_str:
         return False, "不正な形式（カンマや「番」を含む）"
 
-    # 枠連の場合は「枠X-X」形式を許可
+    # 枠連の場合の特別処理
     if bet_type == '枠連':
-        if sel_str.startswith('枠') or SELECTION_PATTERN.match(sel_str):
+        # 「枠X-X」形式を許可
+        if sel_str.startswith('枠'):
             return True, ""
-        return False, "枠連の形式が不正"
+
+        # 数字-数字形式のみ許可（3つ以上は不許可）
+        parts = sel_str.split('-')
+        if len(parts) > 2:
+            return False, "枠連は2つまで（3つ以上の数字は不許可）"
+
+        # 各枠番が1-8の範囲かチェック
+        for part in parts:
+            try:
+                waku = int(part)
+                if waku < 1 or waku > 8:
+                    return False, f"枠番は1-8の範囲（{waku}は不正）"
+            except ValueError:
+                return False, f"枠番が数字ではない（{part}）"
+
+        return True, ""
 
     # 通常のパターンチェック
     if SELECTION_PATTERN.match(sel_str):
