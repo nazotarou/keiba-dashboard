@@ -80,1016 +80,1019 @@
       "note": "Claude予想2的中、4連α1的中"
     }
   ],
-  "bets": [
-    {
+  "races": {
+    "2026-01-04_京都11R": {
       "date": "2026-01-04",
-      "race": "京都11R",
-      "number": 15,
-      "horse": "ブエナオンダ",
-      "selection": "",
-      "weapon": "-",
-      "betType": "単勝",
-      "amount": 500,
-      "result": "**1着**",
-      "payout": 3900
+      "name": "京都11R",
+      "title": "",
+      "horses": {
+        "15": "ブエナオンダ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "15",
+          "amount": 500,
+          "payout": 3900,
+          "weapon": "-",
+          "result": "**1着**"
+        },
+        {
+          "type": "馬連",
+          "selection": "03-15",
+          "amount": 600,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        },
+        {
+          "type": "馬連",
+          "selection": "01-15",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        },
+        {
+          "type": "ワイド",
+          "selection": "03-16",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "03-06-15",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "03-12-15",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "03-13-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "03-15-16",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        }
+      ]
     },
-    {
-      "date": "2026-01-04",
-      "race": "京都11R",
-      "number": 3,
-      "horse": "",
-      "selection": "03-15",
-      "weapon": "-",
-      "betType": "馬連",
-      "amount": 600,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-04",
-      "race": "京都11R",
-      "number": 1,
-      "horse": "",
-      "selection": "01-15",
-      "weapon": "-",
-      "betType": "馬連",
-      "amount": 200,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-04",
-      "race": "京都11R",
-      "number": 3,
-      "horse": "",
-      "selection": "03-16",
-      "weapon": "-",
-      "betType": "ワイド",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-04",
-      "race": "京都11R",
-      "number": 3,
-      "horse": "",
-      "selection": "03-06-15",
-      "weapon": "-",
-      "betType": "3連複",
-      "amount": 200,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-04",
-      "race": "京都11R",
-      "number": 3,
-      "horse": "",
-      "selection": "03-12-15",
-      "weapon": "-",
-      "betType": "3連複",
-      "amount": 200,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-04",
-      "race": "京都11R",
-      "number": 3,
-      "horse": "",
-      "selection": "03-13-15",
-      "weapon": "-",
-      "betType": "3連複",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-04",
-      "race": "京都11R",
-      "number": 3,
-      "horse": "",
-      "selection": "03-15-16",
-      "weapon": "-",
-      "betType": "3連複",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
+    "2026-01-11_中山8R": {
       "date": "2026-01-11",
-      "race": "中山8R",
-      "number": 5,
-      "horse": "ディクシーヴォーグ",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "中山8R",
+      "title": "",
+      "horses": {
+        "05": "ディクシーヴォーグ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "5",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "5",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-11_京都8R": {
       "date": "2026-01-11",
-      "race": "中山8R",
-      "number": 5,
-      "horse": "ディクシーヴォーグ",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "京都8R",
+      "title": "",
+      "horses": {
+        "09": "トーレ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "9",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星+ラッキースケベ",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "9",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星+ラッキースケベ",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-11_京都11R": {
       "date": "2026-01-11",
-      "race": "京都8R",
-      "number": 9,
-      "horse": "トーレ",
-      "selection": "",
-      "weapon": "4連星+ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "京都11R",
+      "title": "",
+      "horses": {
+        "01": "シュタールヴィント"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "1",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキースケベ",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "1",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキースケベ",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-11_他": {
       "date": "2026-01-11",
-      "race": "京都8R",
-      "number": 9,
-      "horse": "トーレ",
-      "selection": "",
-      "weapon": "4連星+ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "他",
+      "title": "",
+      "horses": {},
+      "bets": [
+        {
+          "type": "-",
+          "selection": "-",
+          "amount": 400,
+          "payout": 0,
+          "weapon": "5穴スター候補",
+          "result": "-"
+        }
+      ]
     },
-    {
-      "date": "2026-01-11",
-      "race": "京都11R",
-      "number": 1,
-      "horse": "シュタールヴィント",
-      "selection": "",
-      "weapon": "ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-11",
-      "race": "京都11R",
-      "number": 1,
-      "horse": "シュタールヴィント",
-      "selection": "",
-      "weapon": "ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-11",
-      "race": "他",
-      "number": 0,
-      "horse": "",
-      "selection": "-",
-      "weapon": "5穴スター候補",
-      "betType": "-",
-      "amount": 400,
-      "result": "-",
-      "payout": 0
-    },
-    {
+    "2026-01-12_中山7R": {
       "date": "2026-01-12",
-      "race": "中山7R",
-      "number": 11,
-      "horse": "ブドワールドール",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "中山7R",
+      "title": "",
+      "horses": {
+        "11": "ブドワールドール",
+        "13": "ライズトゥザトップ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "11",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス",
+          "result": "-"
+        },
+        {
+          "type": "単勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "(帯外)",
+          "result": "-"
+        },
+        {
+          "type": "馬連11-13",
+          "selection": "-",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-12_京都10R": {
       "date": "2026-01-12",
-      "race": "中山7R",
-      "number": 13,
-      "horse": "ライズトゥザトップ",
-      "selection": "",
-      "weapon": "(帯外)",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "京都10R",
+      "title": "",
+      "horses": {
+        "09": "タマモプルメリア",
+        "10": "オンザライン"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "9",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "9",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "単勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星+ラッキースケベ",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星+ラッキースケベ",
+          "result": "-"
+        },
+        {
+          "type": "枠連5-5",
+          "selection": "0",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "-",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-12_中山11R": {
       "date": "2026-01-12",
-      "race": "中山7R",
-      "number": 0,
-      "horse": "",
-      "selection": "-",
-      "weapon": "-",
-      "betType": "馬連11-13",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "中山11R",
+      "title": "",
+      "horses": {
+        "06": "ハクサンバード"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "6",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス(帯外)",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "6",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス(帯外)",
+          "result": "-"
+        }
+      ]
     },
-    {
-      "date": "2026-01-12",
-      "race": "京都10R",
-      "number": 9,
-      "horse": "タマモプルメリア",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-12",
-      "race": "京都10R",
-      "number": 9,
-      "horse": "タマモプルメリア",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-12",
-      "race": "京都10R",
-      "number": 10,
-      "horse": "オンザライン",
-      "selection": "",
-      "weapon": "4連星+ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-12",
-      "race": "京都10R",
-      "number": 10,
-      "horse": "オンザライン",
-      "selection": "",
-      "weapon": "4連星+ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-12",
-      "race": "京都10R",
-      "number": 0,
-      "horse": "同枠",
-      "selection": "",
-      "weapon": "-",
-      "betType": "枠連5-5",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-12",
-      "race": "中山11R",
-      "number": 6,
-      "horse": "ハクサンバード",
-      "selection": "",
-      "weapon": "中穴ステルス(帯外)",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-12",
-      "race": "中山11R",
-      "number": 6,
-      "horse": "ハクサンバード",
-      "selection": "",
-      "weapon": "中穴ステルス(帯外)",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
+    "2026-01-18_中山2R": {
       "date": "2026-01-18",
-      "race": "中山2R",
-      "number": 6,
-      "horse": "デルマホダカ",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "**1着**",
-      "payout": 1390
+      "name": "中山2R",
+      "title": "",
+      "horses": {
+        "06": "デルマホダカ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "6",
+          "amount": 100,
+          "payout": 1390,
+          "weapon": "中穴ステルス",
+          "result": "**1着**"
+        },
+        {
+          "type": "複勝",
+          "selection": "6",
+          "amount": 100,
+          "payout": 440,
+          "weapon": "中穴ステルス",
+          "result": "**1着**"
+        }
+      ]
     },
-    {
+    "2026-01-18_中山6R": {
       "date": "2026-01-18",
-      "race": "中山2R",
-      "number": 6,
-      "horse": "デルマホダカ",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "**1着**",
-      "payout": 440
+      "name": "中山6R",
+      "title": "",
+      "horses": {
+        "08": "ツマヤ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "8",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "8",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-18_京都6R": {
       "date": "2026-01-18",
-      "race": "中山6R",
-      "number": 8,
-      "horse": "ツマヤ",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "京都6R",
+      "title": "",
+      "horses": {
+        "03": "ジーティーウタマロ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-18_中山10R": {
       "date": "2026-01-18",
-      "race": "中山6R",
-      "number": 8,
-      "horse": "ツマヤ",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "中山10R",
+      "title": "",
+      "horses": {
+        "01": "ワールズコライド",
+        "14": "モンドプリューム",
+        "15": "サウンドアレグリア"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "1",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "1",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス",
+          "result": "-"
+        },
+        {
+          "type": "単勝",
+          "selection": "14",
+          "amount": 100,
+          "payout": 4170,
+          "weapon": "Gemini推奨",
+          "result": "**1着！12人気**"
+        },
+        {
+          "type": "複勝",
+          "selection": "14",
+          "amount": 100,
+          "payout": 490,
+          "weapon": "Gemini推奨",
+          "result": "**1着**"
+        },
+        {
+          "type": "単勝",
+          "selection": "15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星+ラッキースケベ",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星+ラッキースケベ",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-18_京都11R": {
       "date": "2026-01-18",
-      "race": "京都6R",
-      "number": 3,
-      "horse": "ジーティーウタマロ",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "京都11R",
+      "title": "",
+      "horses": {
+        "03": "ドクタードリトル",
+        "04": "オールナット",
+        "07": "ファミリータイム",
+        "08": "ヤマニンブークリエ",
+        "10": "サブマリーナ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス(レンジ外)",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "中穴ステルス(レンジ外)",
+          "result": "-"
+        },
+        {
+          "type": "単勝",
+          "selection": "4",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星+ラッキースケベ",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "4",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星+ラッキースケベ",
+          "result": "-"
+        },
+        {
+          "type": "単勝",
+          "selection": "7",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキースケベ",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "7",
+          "amount": 100,
+          "payout": 490,
+          "weapon": "ラッキースケベ",
+          "result": "**2着！10人気**"
+        },
+        {
+          "type": "単勝",
+          "selection": "8",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "8",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "単勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星候補",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星候補",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-18_中山11R": {
       "date": "2026-01-18",
-      "race": "京都6R",
-      "number": 3,
-      "horse": "ジーティーウタマロ",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "中山11R",
+      "title": "",
+      "horses": {
+        "02": "オーブルクール",
+        "03": "バンデルオーラ",
+        "08": "エコロアゼル"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "2",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini推奨",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "2",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini推奨",
+          "result": "-"
+        },
+        {
+          "type": "単勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini推奨",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini推奨",
+          "result": "-"
+        },
+        {
+          "type": "単勝",
+          "selection": "8",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini推奨",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "8",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini推奨",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-18_京都12R": {
       "date": "2026-01-18",
-      "race": "中山10R",
-      "number": 1,
-      "horse": "ワールズコライド",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "京都12R",
+      "title": "",
+      "horses": {},
+      "bets": [
+        {
+          "type": "各種",
+          "selection": "5,10,11番",
+          "amount": 700,
+          "payout": 300,
+          "weapon": "武器+Gemini",
+          "result": "返還300円"
+        }
+      ]
     },
-    {
-      "date": "2026-01-18",
-      "race": "中山10R",
-      "number": 1,
-      "horse": "ワールズコライド",
-      "selection": "",
-      "weapon": "中穴ステルス",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山10R",
-      "number": 14,
-      "horse": "モンドプリューム",
-      "selection": "",
-      "weapon": "Gemini推奨",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "**1着！12人気**",
-      "payout": 4170
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山10R",
-      "number": 14,
-      "horse": "モンドプリューム",
-      "selection": "",
-      "weapon": "Gemini推奨",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "**1着**",
-      "payout": 490
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山10R",
-      "number": 15,
-      "horse": "サウンドアレグリア",
-      "selection": "",
-      "weapon": "4連星+ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山10R",
-      "number": 15,
-      "horse": "サウンドアレグリア",
-      "selection": "",
-      "weapon": "4連星+ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 3,
-      "horse": "ドクタードリトル",
-      "selection": "",
-      "weapon": "中穴ステルス(レンジ外)",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 3,
-      "horse": "ドクタードリトル",
-      "selection": "",
-      "weapon": "中穴ステルス(レンジ外)",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 4,
-      "horse": "オールナット",
-      "selection": "",
-      "weapon": "4連星+ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 4,
-      "horse": "オールナット",
-      "selection": "",
-      "weapon": "4連星+ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 7,
-      "horse": "ファミリータイム",
-      "selection": "",
-      "weapon": "ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 7,
-      "horse": "ファミリータイム",
-      "selection": "",
-      "weapon": "ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "**2着！10人気**",
-      "payout": 490
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 8,
-      "horse": "ヤマニンブークリエ",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 8,
-      "horse": "ヤマニンブークリエ",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 10,
-      "horse": "サブマリーナ",
-      "selection": "",
-      "weapon": "4連星候補",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都11R",
-      "number": 10,
-      "horse": "サブマリーナ",
-      "selection": "",
-      "weapon": "4連星候補",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山11R",
-      "number": 2,
-      "horse": "オーブルクール",
-      "selection": "",
-      "weapon": "Gemini推奨",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山11R",
-      "number": 2,
-      "horse": "オーブルクール",
-      "selection": "",
-      "weapon": "Gemini推奨",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山11R",
-      "number": 3,
-      "horse": "バンデルオーラ",
-      "selection": "",
-      "weapon": "Gemini推奨",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山11R",
-      "number": 3,
-      "horse": "バンデルオーラ",
-      "selection": "",
-      "weapon": "Gemini推奨",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山11R",
-      "number": 8,
-      "horse": "エコロアゼル",
-      "selection": "",
-      "weapon": "Gemini推奨",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "中山11R",
-      "number": 8,
-      "horse": "エコロアゼル",
-      "selection": "",
-      "weapon": "Gemini推奨",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-18",
-      "race": "京都12R",
-      "number": 5,
-      "horse": "",
-      "selection": "5,10,11番",
-      "weapon": "武器+Gemini",
-      "betType": "各種",
-      "amount": 700,
-      "result": "返還300円",
-      "payout": 300
-    },
-    {
+    "2026-01-24_小倉3R": {
       "date": "2026-01-24",
-      "race": "小倉3R",
-      "number": 3,
-      "horse": "ミスヘンリー",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "小倉3R",
+      "title": "",
+      "horses": {
+        "03": "ミスヘンリー"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-24_中山5R": {
       "date": "2026-01-24",
-      "race": "小倉3R",
-      "number": 3,
-      "horse": "ミスヘンリー",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "中山5R",
+      "title": "",
+      "horses": {
+        "06": "ラヴィニアパーク"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "6",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "6",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-24_小倉6R": {
       "date": "2026-01-24",
-      "race": "中山5R",
-      "number": 6,
-      "horse": "ラヴィニアパーク",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "小倉6R",
+      "title": "",
+      "horses": {
+        "03": "リアル"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 890,
+          "weapon": "4連星",
+          "result": "**3着**"
+        }
+      ]
     },
-    {
+    "2026-01-24_中山11R": {
       "date": "2026-01-24",
-      "race": "中山5R",
-      "number": 6,
-      "horse": "ラヴィニアパーク",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "中山11R",
+      "title": "",
+      "horses": {
+        "04": "フレーヴァード"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "4",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "4",
+          "amount": 100,
+          "payout": 660,
+          "weapon": "4連星",
+          "result": "**3着**"
+        }
+      ]
     },
-    {
+    "2026-01-24_小倉11R": {
       "date": "2026-01-24",
-      "race": "小倉6R",
-      "number": 3,
-      "horse": "リアル",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "小倉11R",
+      "title": "",
+      "horses": {
+        "16": "ボンドガール"
+      },
+      "bets": [
+        {
+          "type": "複勝他",
+          "selection": "16",
+          "amount": 900,
+          "payout": 410,
+          "weapon": "4連星",
+          "result": "**2着**"
+        }
+      ]
     },
-    {
+    "2026-01-24_京都12R": {
       "date": "2026-01-24",
-      "race": "小倉6R",
-      "number": 3,
-      "horse": "リアル",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "**3着**",
-      "payout": 890
+      "name": "京都12R",
+      "title": "",
+      "horses": {
+        "05": "アオイミモザ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "5",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "5",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        }
+      ]
     },
-    {
+    "2026-01-24_小倉12R": {
       "date": "2026-01-24",
-      "race": "中山11R",
-      "number": 4,
-      "horse": "フレーヴァード",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
+      "name": "小倉12R",
+      "title": "",
+      "horses": {
+        "03": "ミッションルース"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        },
+        {
+          "type": "複勝",
+          "selection": "3",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連星",
+          "result": "-"
+        }
+      ]
     },
-    {
-      "date": "2026-01-24",
-      "race": "中山11R",
-      "number": 4,
-      "horse": "フレーヴァード",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "**3着**",
-      "payout": 660
-    },
-    {
-      "date": "2026-01-24",
-      "race": "小倉11R",
-      "number": 16,
-      "horse": "ボンドガール",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝他",
-      "amount": 900,
-      "result": "**2着**",
-      "payout": 410
-    },
-    {
-      "date": "2026-01-24",
-      "race": "京都12R",
-      "number": 5,
-      "horse": "アオイミモザ",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-24",
-      "race": "京都12R",
-      "number": 5,
-      "horse": "アオイミモザ",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-24",
-      "race": "小倉12R",
-      "number": 3,
-      "horse": "ミッションルース",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-24",
-      "race": "小倉12R",
-      "number": 3,
-      "horse": "ミッションルース",
-      "selection": "",
-      "weapon": "4連星",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "-",
-      "payout": 0
-    },
-    {
+    "2026-01-25_小倉1R": {
       "date": "2026-01-25",
-      "race": "小倉1R",
-      "number": 4,
-      "horse": "ドウカキミニトドケ",
-      "selection": "",
-      "weapon": "4連α+ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "**1着！**",
-      "payout": 1650
+      "name": "小倉1R",
+      "title": "",
+      "horses": {
+        "04": "ドウカキミニトドケ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "4",
+          "amount": 100,
+          "payout": 1650,
+          "weapon": "4連α+ラッキースケベ",
+          "result": "**1着！**"
+        },
+        {
+          "type": "複勝",
+          "selection": "4",
+          "amount": 100,
+          "payout": 480,
+          "weapon": "4連α+ラッキースケベ",
+          "result": "**1着**"
+        }
+      ]
     },
-    {
+    "2026-01-25_小倉2R": {
       "date": "2026-01-25",
-      "race": "小倉1R",
-      "number": 4,
-      "horse": "ドウカキミニトドケ",
-      "selection": "",
-      "weapon": "4連α+ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "**1着**",
-      "payout": 480
+      "name": "小倉2R",
+      "title": "",
+      "horses": {
+        "13": "ハルヒメ"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキースケベ",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキースケベ",
+          "result": "着外"
+        }
+      ]
     },
-    {
+    "2026-01-25_小倉12R": {
       "date": "2026-01-25",
-      "race": "小倉2R",
-      "number": 13,
-      "horse": "ハルヒメ",
-      "selection": "",
-      "weapon": "ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "着外",
-      "payout": 0
+      "name": "小倉12R",
+      "title": "",
+      "horses": {
+        "14": "ダノンピクチャー"
+      },
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキースケベ",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキースケベ",
+          "result": "着外"
+        }
+      ]
     },
-    {
-      "date": "2026-01-25",
-      "race": "小倉2R",
-      "number": 13,
-      "horse": "ハルヒメ",
-      "selection": "",
-      "weapon": "ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "着外",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-25",
-      "race": "小倉12R",
-      "number": 14,
-      "horse": "ダノンピクチャー",
-      "selection": "",
-      "weapon": "ラッキースケベ",
-      "betType": "単勝",
-      "amount": 100,
-      "result": "着外",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-25",
-      "race": "小倉12R",
-      "number": 14,
-      "horse": "ダノンピクチャー",
-      "selection": "",
-      "weapon": "ラッキースケベ",
-      "betType": "複勝",
-      "amount": 100,
-      "result": "着外",
-      "payout": 0
-    },
-    {
+    "2026-01-31_小倉6R": {
       "date": "2026-01-31",
-      "race": "小倉6R",
-      "number": 13,
-      "horse": "アンジェラス",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "着外",
-      "payout": 0
+      "name": "小倉6R",
+      "title": "",
+      "horses": {
+        "13": "アンジェラス"
+      },
+      "bets": [
+        {
+          "type": "単複",
+          "selection": "13",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "着外"
+        }
+      ]
     },
-    {
+    "2026-01-31_小倉8R": {
       "date": "2026-01-31",
-      "race": "小倉8R",
-      "number": 7,
-      "horse": "アルシャンティ",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "着外",
-      "payout": 0
+      "name": "小倉8R",
+      "title": "",
+      "horses": {
+        "07": "アルシャンティ"
+      },
+      "bets": [
+        {
+          "type": "単複",
+          "selection": "7",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "着外"
+        }
+      ]
     },
-    {
+    "2026-01-31_東京7R": {
       "date": "2026-01-31",
-      "race": "東京7R",
-      "number": 4,
-      "horse": "ショーリバース",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "着外",
-      "payout": 0
+      "name": "東京7R",
+      "title": "",
+      "horses": {
+        "04": "ショーリバース"
+      },
+      "bets": [
+        {
+          "type": "単複",
+          "selection": "4",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "着外"
+        }
+      ]
     },
-    {
+    "2026-01-31_東京8R": {
       "date": "2026-01-31",
-      "race": "東京8R",
-      "number": 2,
-      "horse": "ネイビースター",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "着外",
-      "payout": 0
+      "name": "東京8R",
+      "title": "",
+      "horses": {
+        "02": "ネイビースター"
+      },
+      "bets": [
+        {
+          "type": "単複",
+          "selection": "2",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "着外"
+        }
+      ]
     },
-    {
+    "2026-01-31_京都10R": {
       "date": "2026-01-31",
-      "race": "京都10R",
-      "number": 1,
-      "horse": "ヴァリージア",
-      "selection": "",
-      "weapon": "",
-      "betType": "単のみ",
-      "amount": 100,
-      "result": "**1着**",
-      "payout": 540
+      "name": "京都10R",
+      "title": "",
+      "horses": {
+        "01": "ヴァリージア"
+      },
+      "bets": [
+        {
+          "type": "単のみ",
+          "selection": "1",
+          "amount": 100,
+          "payout": 540,
+          "weapon": "-",
+          "result": "**1着**"
+        }
+      ]
     },
-    {
+    "2026-01-31_東京10R": {
       "date": "2026-01-31",
-      "race": "東京10R",
-      "number": 2,
-      "horse": "オルネーロ",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "**1着**",
-      "payout": 620
+      "name": "東京10R",
+      "title": "",
+      "horses": {
+        "02": "オルネーロ"
+      },
+      "bets": [
+        {
+          "type": "単複",
+          "selection": "2",
+          "amount": 200,
+          "payout": 620,
+          "weapon": "-",
+          "result": "**1着**"
+        }
+      ]
     },
-    {
+    "2026-01-31_東京11R": {
       "date": "2026-01-31",
-      "race": "東京11R",
-      "number": 5,
-      "horse": "キングズパレス",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "着外",
-      "payout": 0
+      "name": "東京11R",
+      "title": "",
+      "horses": {
+        "05": "キングズパレス"
+      },
+      "bets": [
+        {
+          "type": "単複",
+          "selection": "5",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "着外"
+        }
+      ]
     },
-    {
+    "2026-01-31_小倉11R": {
       "date": "2026-01-31",
-      "race": "小倉11R",
-      "number": 6,
-      "horse": "レッドエヴァンス",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "**3着**",
-      "payout": 310
-    },
-    {
-      "date": "2026-01-31",
-      "race": "小倉11R",
-      "number": 8,
-      "horse": "ベイビーキッス",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "着外",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-31",
-      "race": "小倉11R",
-      "number": 9,
-      "horse": "ミルテンベルク",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "着外",
-      "payout": 0
-    },
-    {
-      "date": "2026-01-31",
-      "race": "小倉11R",
-      "number": 11,
-      "horse": "ロードマイライフ",
-      "selection": "",
-      "weapon": "",
-      "betType": "単複",
-      "amount": 200,
-      "result": "着外",
-      "payout": 0
+      "name": "小倉11R",
+      "title": "",
+      "horses": {
+        "06": "レッドエヴァンス",
+        "08": "ベイビーキッス",
+        "09": "ミルテンベルク",
+        "11": "ロードマイライフ"
+      },
+      "bets": [
+        {
+          "type": "単複",
+          "selection": "6",
+          "amount": 200,
+          "payout": 310,
+          "weapon": "-",
+          "result": "**3着**"
+        },
+        {
+          "type": "単複",
+          "selection": "8",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "着外"
+        },
+        {
+          "type": "単複",
+          "selection": "9",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "着外"
+        },
+        {
+          "type": "単複",
+          "selection": "11",
+          "amount": 200,
+          "payout": 0,
+          "weapon": "-",
+          "result": "着外"
+        }
+      ]
     }
-  ],
+  },
   "weaponStats": {
     "double": {
       "count": 5,

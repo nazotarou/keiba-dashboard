@@ -357,12 +357,27 @@
       }
     }
 
+    // Helper: Get horse display string from selection and horses map
+    // "06" -> "6 メイショウタバル"
+    // "06-11" -> "6-11 メイショウタバル/ミステリーウェイ"
+    function getHorseDisplay(selection, horses) {
+      if (!selection) return '';
+      const nums = String(selection).split('-');
+      const displayNums = nums.map(n => parseInt(n, 10) || n);
+      // Try both zero-padded and non-padded keys
+      const names = nums.map(n => {
+        if (!horses) return '?';
+        const padded = n.padStart(2, '0');
+        return horses[n] || horses[padded] || horses[String(parseInt(n, 10))] || '?';
+      });
+      return displayNums.join('-') + ' ' + names.join('/');
+    }
+
     // Render daily results
     // No hit: 馬名 / 単-100 複-100 / 武器 / 収-200
     // Has hit: 馬名 券種-投資 当+利益 / 武器 / 他N点▶ / 収±レース全体
     function renderDaily(date) {
       const dayData = globalData.daily.find(d => d.date === date);
-      const bets = globalData.bets.filter(b => b.date === date);
       const contentEl = document.getElementById('daily-content');
 
       const profitClass = dayData.profit >= 0 ? 'positive' : 'negative';
@@ -370,136 +385,239 @@
 
       let html = `<div class="daily-header"><span class="daily-total ${profitClass}">${profitText}</span></div>`;
 
-      // Group bets by race
-      const races = {};
-      bets.forEach(b => {
-        if (!races[b.race]) races[b.race] = [];
-        races[b.race].push(b);
-      });
+      // Check for new format (races object) or fallback to legacy format
+      const hasNewFormat = globalData.races && Object.keys(globalData.races).some(k => k.startsWith(date));
 
-      // Process each race
-      Object.entries(races).forEach(([race, raceBets]) => {
-        html += `<div class="race-block"><div class="race-name">${race}</div>`;
+      if (hasNewFormat) {
+        // New format: use races object
+        const raceKeys = Object.keys(globalData.races).filter(k => k.startsWith(date)).sort();
 
-        const hasHit = raceBets.some(b => b.payout > 0);
-        const raceProfit = raceBets.reduce((sum, b) => sum + (b.payout - b.amount), 0);
-        const raceProfitCls = raceProfit >= 0 ? 'win' : 'loss';
-        const raceProfitSign = raceProfit >= 0 ? '+' : '';
+        raceKeys.forEach(raceKey => {
+          const raceData = globalData.races[raceKey];
+          const raceName = raceKey.slice(11); // Remove "YYYY-MM-DD_" prefix
+          const horses = raceData.horses || {};
+          const raceBets = raceData.bets || [];
 
-        if (hasHit) {
-          // HIT: Show hit bets main, others collapsed, race total at end
-          const hitBets = raceBets.filter(b => b.payout > 0);
-          const missBets = raceBets.filter(b => b.payout === 0);
+          html += `<div class="race-block"><div class="race-name">${raceName}</div>`;
 
-          // Group hit bets by horse
-          const hitHorses = {};
-          hitBets.forEach(b => {
-            const key = b.horse || b.selection;
-            if (!hitHorses[key]) hitHorses[key] = { horse: key, number: b.number, weapon: b.weapon, bets: [] };
-            hitHorses[key].bets.push(b);
-          });
+          const hasHit = raceBets.some(b => b.payout > 0);
+          const raceProfit = raceBets.reduce((sum, b) => sum + (b.payout - b.amount), 0);
+          const raceProfitCls = raceProfit >= 0 ? 'win' : 'loss';
+          const raceProfitSign = raceProfit >= 0 ? '+' : '';
 
-          // Render hit horses
-          let hitTotal = 0;
-          Object.values(hitHorses).forEach(h => {
-            let line1Right = '';
-            h.bets.forEach(b => {
-              const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
+          if (hasHit) {
+            const hitBets = raceBets.filter(b => b.payout > 0);
+            const missBets = raceBets.filter(b => b.payout === 0);
+
+            // Render hit bets
+            let hitTotal = 0;
+            hitBets.forEach(b => {
+              const type = b.type === '単勝' ? '単' : b.type === '複勝' ? '複' : b.type;
               const profit = b.payout - b.amount;
               hitTotal += profit;
-              if (line1Right) line1Right += ' ';
-              line1Right += `${type}<span class="loss">-${b.amount}</span> 🎯<span class="win">+${profit.toLocaleString()}</span>`;
+              const display = getHorseDisplay(b.selection, horses);
+              html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span> 🎯<span class="win">+${profit.toLocaleString()}</span></span></div>`;
+              if (b.weapon && b.weapon !== '-') {
+                html += `<div class="row"><span class="left sub">${b.weapon}</span><span class="right"></span></div>`;
+              }
             });
-            const numStr = h.number ? h.number + ' ' : '';
-            html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right">${line1Right}</span></div>`;
-            if (h.weapon && h.weapon !== '-') {
-              html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
+
+            // Show miss bets collapsed
+            if (missBets.length > 0) {
+              const hitTotalCls = hitTotal >= 0 ? 'win' : 'loss';
+              const hitTotalSign = hitTotal >= 0 ? '+' : '';
+              html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitTotalCls}">${hitTotalSign}${hitTotal.toLocaleString()}</span></span></div>`;
+
+              const missTotal = missBets.reduce((sum, b) => sum - b.amount, 0);
+              html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${missBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
+              html += `<div class="expand-content">`;
+              missBets.forEach(b => {
+                const type = b.type === '単勝' ? '単' : b.type === '複勝' ? '複' : b.type;
+                const display = getHorseDisplay(b.selection, horses);
+                html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
+              });
+              html += `</div>`;
             }
-          });
 
-          // Show miss bets collapsed (only if exists)
-          if (missBets.length > 0) {
-            // Hit subtotal (only show when there are miss bets too)
-            const hitTotalCls = hitTotal >= 0 ? 'win' : 'loss';
-            const hitTotalSign = hitTotal >= 0 ? '+' : '';
-            html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitTotalCls}">${hitTotalSign}${hitTotal.toLocaleString()}</span></span></div>`;
+            html += `<div class="row"><span class="left"></span><span class="right">収<span class="${raceProfitCls}">${raceProfitSign}${raceProfit.toLocaleString()}</span></span></div>`;
 
-            const missTotal = missBets.reduce((sum, b) => sum - b.amount, 0);
-            html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${missBets.length}点</span><span class="right"><span class="expand-icon">▶</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
-            html += `<div class="expand-content" style="display:none;">`;
-            missBets.forEach(b => {
-              const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
-              const name = b.horse || b.selection;
-              const numStr = b.number ? b.number + ' ' : '';
-              html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
+          } else {
+            // NO HIT
+            const tanpuku = raceBets.filter(b => b.type === '単勝' || b.type === '複勝');
+            const others = raceBets.filter(b => b.type !== '単勝' && b.type !== '複勝');
+
+            // Group tanpuku by selection
+            const grouped = {};
+            tanpuku.forEach(b => {
+              const key = b.selection;
+              if (!grouped[key]) grouped[key] = { selection: key, weapon: b.weapon, win: null, place: null };
+              if (b.type === '単勝') grouped[key].win = b;
+              else if (b.type === '複勝') grouped[key].place = b;
             });
-            html += `</div>`;
+
+            let tanpukuTotal = 0;
+            Object.values(grouped).forEach(g => {
+              let line1Right = '';
+              if (g.win) {
+                tanpukuTotal -= g.win.amount;
+                line1Right += `単<span class="loss">-${g.win.amount}</span>`;
+              }
+              if (g.place) {
+                tanpukuTotal -= g.place.amount;
+                if (line1Right) line1Right += ' ';
+                line1Right += `複<span class="loss">-${g.place.amount}</span>`;
+              }
+              const display = getHorseDisplay(g.selection, horses);
+              html += `<div class="row"><span class="left">${display}</span><span class="right">${line1Right}</span></div>`;
+              if (g.weapon && g.weapon !== '-') {
+                html += `<div class="row"><span class="left sub">${g.weapon}</span><span class="right"></span></div>`;
+              }
+            });
+
+            // Render other bets collapsed
+            if (others.length > 0) {
+              if (Object.keys(grouped).length > 0) {
+                html += `<div class="row"><span class="left"></span><span class="right">収<span class="loss">${tanpukuTotal.toLocaleString()}</span></span></div>`;
+              }
+
+              const othersTotal = others.reduce((sum, b) => sum - b.amount, 0);
+              html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${others.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${othersTotal.toLocaleString()}</span></span></div>`;
+              html += `<div class="expand-content">`;
+              others.forEach(b => {
+                const display = getHorseDisplay(b.selection, horses);
+                html += `<div class="row"><span class="left">${display}</span><span class="right">${b.type}<span class="loss">-${b.amount}</span></span></div>`;
+              });
+              html += `</div>`;
+            }
+
+            html += `<div class="row"><span class="left"></span><span class="right">収<span class="${raceProfitCls}">${raceProfitSign}${raceProfit.toLocaleString()}</span></span></div>`;
           }
 
-          // Race total
-          html += `<div class="row"><span class="left"></span><span class="right">収<span class="${raceProfitCls}">${raceProfitSign}${raceProfit.toLocaleString()}</span></span></div>`;
+          html += `</div>`;
+        });
 
-        } else {
-          // NO HIT: Show each horse with 単-100 複-100 format
-          const tanpuku = raceBets.filter(b => b.betType === '単勝' || b.betType === '複勝');
-          const others = raceBets.filter(b => b.betType !== '単勝' && b.betType !== '複勝');
+      } else {
+        // Legacy format: use bets array
+        const bets = globalData.bets.filter(b => b.date === date);
 
-          // Group tanpuku by horse
-          const horses = {};
-          tanpuku.forEach(b => {
-            const key = b.horse || b.selection;
-            if (!horses[key]) horses[key] = { horse: key, number: b.number, weapon: b.weapon, win: null, place: null };
-            if (b.betType === '単勝') horses[key].win = b;
-            else if (b.betType === '複勝') horses[key].place = b;
-          });
+        // Group bets by race
+        const races = {};
+        bets.forEach(b => {
+          if (!races[b.race]) races[b.race] = [];
+          races[b.race].push(b);
+        });
 
-          // Render each horse
-          let tanpukuTotal = 0;
-          Object.values(horses).forEach(h => {
-            let line1Right = '';
+        Object.entries(races).forEach(([race, raceBets]) => {
+          html += `<div class="race-block"><div class="race-name">${race}</div>`;
 
-            if (h.win) {
-              tanpukuTotal -= h.win.amount;
-              line1Right += `単<span class="loss">-${h.win.amount}</span>`;
-            }
-            if (h.place) {
-              tanpukuTotal -= h.place.amount;
-              if (line1Right) line1Right += ' ';
-              line1Right += `複<span class="loss">-${h.place.amount}</span>`;
-            }
+          const hasHit = raceBets.some(b => b.payout > 0);
+          const raceProfit = raceBets.reduce((sum, b) => sum + (b.payout - b.amount), 0);
+          const raceProfitCls = raceProfit >= 0 ? 'win' : 'loss';
+          const raceProfitSign = raceProfit >= 0 ? '+' : '';
 
-            const numStr = h.number ? h.number + ' ' : '';
-            html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right">${line1Right}</span></div>`;
-            // Only show weapon line if weapon is meaningful
-            if (h.weapon && h.weapon !== '-') {
-              html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
-            }
-          });
+          if (hasHit) {
+            const hitBets = raceBets.filter(b => b.payout > 0);
+            const missBets = raceBets.filter(b => b.payout === 0);
 
-          // Render other bets collapsed (only if exists)
-          if (others.length > 0) {
-            // Tanpuku subtotal (only show when there are others too)
-            if (Object.keys(horses).length > 0) {
-              html += `<div class="row"><span class="left"></span><span class="right">収<span class="loss">${tanpukuTotal.toLocaleString()}</span></span></div>`;
-            }
-
-            const othersTotal = others.reduce((sum, b) => sum - b.amount, 0);
-            html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${others.length}点</span><span class="right"><span class="expand-icon">▶</span>収<span class="loss">${othersTotal.toLocaleString()}</span></span></div>`;
-            html += `<div class="expand-content" style="display:none;">`;
-            others.forEach(b => {
-              const name = b.horse || b.selection;
-              const numStr = b.number ? b.number + ' ' : '';
-              html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${b.betType}<span class="loss">-${b.amount}</span></span></div>`;
+            const hitHorses = {};
+            hitBets.forEach(b => {
+              const key = b.horse || b.selection;
+              const num = b.number || ((b.betType === '単勝' || b.betType === '複勝') ? b.selection : null);
+              if (!hitHorses[key]) hitHorses[key] = { horse: key, number: num, weapon: b.weapon, bets: [] };
+              hitHorses[key].bets.push(b);
             });
-            html += `</div>`;
+
+            let hitTotal = 0;
+            Object.values(hitHorses).forEach(h => {
+              let line1Right = '';
+              h.bets.forEach(b => {
+                const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
+                const profit = b.payout - b.amount;
+                hitTotal += profit;
+                if (line1Right) line1Right += ' ';
+                line1Right += `${type}<span class="loss">-${b.amount}</span> 🎯<span class="win">+${profit.toLocaleString()}</span>`;
+              });
+              const numStr = h.number ? h.number + ' ' : '';
+              html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right">${line1Right}</span></div>`;
+              if (h.weapon && h.weapon !== '-') {
+                html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
+              }
+            });
+
+            if (missBets.length > 0) {
+              const hitTotalCls = hitTotal >= 0 ? 'win' : 'loss';
+              const hitTotalSign = hitTotal >= 0 ? '+' : '';
+              html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitTotalCls}">${hitTotalSign}${hitTotal.toLocaleString()}</span></span></div>`;
+
+              const missTotal = missBets.reduce((sum, b) => sum - b.amount, 0);
+              html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${missBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
+              html += `<div class="expand-content">`;
+              missBets.forEach(b => {
+                const type = b.betType === '単勝' ? '単' : b.betType === '複勝' ? '複' : b.betType;
+                const name = b.horse || b.selection;
+                const num = b.number || ((b.betType === '単勝' || b.betType === '複勝') ? b.selection : null);
+                const numStr = num ? num + ' ' : '';
+                html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
+              });
+              html += `</div>`;
+            }
+
+            html += `<div class="row"><span class="left"></span><span class="right">収<span class="${raceProfitCls}">${raceProfitSign}${raceProfit.toLocaleString()}</span></span></div>`;
+
+          } else {
+            const tanpuku = raceBets.filter(b => b.betType === '単勝' || b.betType === '複勝');
+            const others = raceBets.filter(b => b.betType !== '単勝' && b.betType !== '複勝');
+
+            const horses = {};
+            tanpuku.forEach(b => {
+              const key = b.horse || b.selection;
+              const num = b.number || b.selection;
+              if (!horses[key]) horses[key] = { horse: key, number: num, weapon: b.weapon, win: null, place: null };
+              if (b.betType === '単勝') horses[key].win = b;
+              else if (b.betType === '複勝') horses[key].place = b;
+            });
+
+            let tanpukuTotal = 0;
+            Object.values(horses).forEach(h => {
+              let line1Right = '';
+              if (h.win) {
+                tanpukuTotal -= h.win.amount;
+                line1Right += `単<span class="loss">-${h.win.amount}</span>`;
+              }
+              if (h.place) {
+                tanpukuTotal -= h.place.amount;
+                if (line1Right) line1Right += ' ';
+                line1Right += `複<span class="loss">-${h.place.amount}</span>`;
+              }
+              const numStr = h.number ? h.number + ' ' : '';
+              html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right">${line1Right}</span></div>`;
+              if (h.weapon && h.weapon !== '-') {
+                html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
+              }
+            });
+
+            if (others.length > 0) {
+              if (Object.keys(horses).length > 0) {
+                html += `<div class="row"><span class="left"></span><span class="right">収<span class="loss">${tanpukuTotal.toLocaleString()}</span></span></div>`;
+              }
+
+              const othersTotal = others.reduce((sum, b) => sum - b.amount, 0);
+              html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${others.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${othersTotal.toLocaleString()}</span></span></div>`;
+              html += `<div class="expand-content">`;
+              others.forEach(b => {
+                const name = b.horse || b.selection;
+                const numStr = b.number ? b.number + ' ' : '';
+                html += `<div class="row"><span class="left">${numStr}${name}</span><span class="right">${b.betType}<span class="loss">-${b.amount}</span></span></div>`;
+              });
+              html += `</div>`;
+            }
+
+            html += `<div class="row"><span class="left"></span><span class="right">収<span class="${raceProfitCls}">${raceProfitSign}${raceProfit.toLocaleString()}</span></span></div>`;
           }
 
-          // Race total
-          html += `<div class="row"><span class="left"></span><span class="right">収<span class="${raceProfitCls}">${raceProfitSign}${raceProfit.toLocaleString()}</span></span></div>`;
-        }
-
-        html += `</div>`;
-      });
+          html += `</div>`;
+        });
+      }
 
       contentEl.innerHTML = html;
     }
