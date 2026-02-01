@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-01-31",
+  "lastUpdated": "2026-02-01",
   "summary": {
-    "totalInvest": 12300,
-    "totalPayout": 16740,
-    "totalProfit": 4440,
-    "roi": 136
+    "totalInvest": 13900,
+    "totalPayout": 19840,
+    "totalProfit": 5940,
+    "roi": 143
   },
   "monthly": [
     {
@@ -13,6 +13,13 @@
       "payout": 16740,
       "profit": 4440,
       "roi": 136
+    },
+    {
+      "month": "2026-02",
+      "invest": 1600,
+      "payout": 3100,
+      "profit": 1500,
+      "roi": 194
     }
   ],
   "daily": [
@@ -78,6 +85,15 @@
       "profit": -630,
       "cumulative": 4440,
       "note": "Claude予想2的中、4連α1的中"
+    },
+    {
+      "date": "2026-02-01",
+      "dayOfWeek": "日",
+      "invest": 1600,
+      "payout": 3100,
+      "profit": 1500,
+      "cumulative": 5940,
+      "note": "4連αトーアジョウトウ単勝21.6倍的中！"
     }
   ],
   "races": {
@@ -1150,6 +1166,196 @@
         "08": "ベイビーキッス",
         "09": "ミルテンベルク",
         "11": "ロードマイライフ"
+      }
+    },
+    "2026-02-01_小倉2R": {
+      "date": "2026-02-01",
+      "name": "小倉2R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "07",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "17着"
+        },
+        {
+          "type": "複勝",
+          "selection": "07",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "17着"
+        }
+      ],
+      "horses": {
+        "07": "タイセイパフューム"
+      }
+    },
+    "2026-02-01_小倉3R": {
+      "date": "2026-02-01",
+      "name": "小倉3R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "06",
+          "amount": 100,
+          "payout": 2160,
+          "weapon": "4連α",
+          "result": "**1着**"
+        },
+        {
+          "type": "複勝",
+          "selection": "06",
+          "amount": 100,
+          "payout": 670,
+          "weapon": "4連α",
+          "result": "**1着**"
+        }
+      ],
+      "horses": {
+        "06": "トーアジョウトウ"
+      }
+    },
+    "2026-02-01_小倉7R": {
+      "date": "2026-02-01",
+      "name": "小倉7R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "9着"
+        },
+        {
+          "type": "複勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "9着"
+        }
+      ],
+      "horses": {
+        "13": "サウンドルーチェ"
+      }
+    },
+    "2026-02-01_小倉12R": {
+      "date": "2026-02-01",
+      "name": "小倉12R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "5着"
+        },
+        {
+          "type": "複勝",
+          "selection": "14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "5着"
+        }
+      ],
+      "horses": {
+        "14": "ミエノブラボー"
+      }
+    },
+    "2026-02-01_京都11R": {
+      "date": "2026-02-01",
+      "name": "京都11R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "09",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "12着"
+        },
+        {
+          "type": "複勝",
+          "selection": "09",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "12着"
+        },
+        {
+          "type": "単勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "8着"
+        },
+        {
+          "type": "複勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "8着"
+        }
+      ],
+      "horses": {
+        "09": "ビッグシーザー",
+        "12": "エーティーマクフィ"
+      }
+    },
+    "2026-02-01_東京11R": {
+      "date": "2026-02-01",
+      "name": "東京11R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "07",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "3着"
+        },
+        {
+          "type": "複勝",
+          "selection": "07",
+          "amount": 100,
+          "payout": 270,
+          "weapon": "Gemini",
+          "result": "**3着**"
+        },
+        {
+          "type": "単勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "5着"
+        },
+        {
+          "type": "複勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "5着"
+        }
+      ],
+      "horses": {
+        "07": "ダノンフィーゴ",
+        "12": "マピュース"
       }
     }
   },
