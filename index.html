@@ -134,7 +134,11 @@
     }
 
     function renderMonthly() {
-      const current = globalData.monthly[globalData.monthly.length - 1];
+      // Use selectedMonth if set, otherwise use latest month
+      const targetMonth = selectedMonth ? parseInt(selectedMonth) : null;
+      const current = targetMonth
+        ? globalData.monthly.find(m => parseInt(m.month.slice(5)) === targetMonth)
+        : globalData.monthly[globalData.monthly.length - 1];
       if (!current) return;
 
       const month = parseInt(current.month.slice(5));
@@ -290,6 +294,7 @@
           document.querySelectorAll('.month-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           renderWeekends();
+          renderMonthly();
           // Hide daily card when switching months
           document.getElementById('daily-card').style.display = 'none';
         }
