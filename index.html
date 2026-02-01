@@ -240,21 +240,21 @@
       // Sort by date ascending (oldest first)
       weekends.reverse();
 
-      // Group by month
+      // Group by month - include weekend in both months if it spans across months
       monthGroups = {};
       weekends.forEach(w => {
-        const month = parseInt(w.sat.slice(5, 7));
-        if (!monthGroups[month]) monthGroups[month] = [];
-        monthGroups[month].push(w);
+        const satMonth = parseInt(w.sat.slice(5, 7));
+        const sunMonth = parseInt(w.sun.slice(5, 7));
+
+        if (!monthGroups[satMonth]) monthGroups[satMonth] = [];
+        monthGroups[satMonth].push(w);
+
+        // If weekend spans two months, add to both
+        if (sunMonth !== satMonth) {
+          if (!monthGroups[sunMonth]) monthGroups[sunMonth] = [];
+          monthGroups[sunMonth].push(w);
+        }
       });
-
-      // Get all months sorted (ascending for display)
-      const months = Object.keys(monthGroups).sort((a, b) => a - b);
-
-      // Default to latest month
-      if (!selectedMonth || !monthGroups[selectedMonth]) {
-        selectedMonth = months[months.length - 1];
-      }
 
       // Calculate profit for each month
       const monthProfits = {};
@@ -263,6 +263,14 @@
         if (!monthProfits[m]) monthProfits[m] = 0;
         monthProfits[m] += d.profit;
       });
+
+      // Get all months from daily data (more accurate than monthGroups for button display)
+      const months = Object.keys(monthProfits).sort((a, b) => a - b);
+
+      // Default to latest month
+      if (!selectedMonth || !monthGroups[selectedMonth]) {
+        selectedMonth = months[months.length - 1];
+      }
 
       // Render month selector buttons
       let monthHtml = '';
