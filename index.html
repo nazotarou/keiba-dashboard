@@ -441,6 +441,25 @@
           const raceName = raceKey.slice(11); // Remove "YYYY-MM-DD_" prefix
           const horses = raceData.horses || {};
           const raceBets = raceData.bets || [];
+          const raceTitle = raceData.title || '';
+
+          // 中止レースの特別処理
+          if (raceTitle.includes('中止')) {
+            html += `<div class="race-block"><div class="race-name">${raceName} <span class="cancelled">${raceTitle}</span></div>`;
+            // 馬番でグループ化して重複表示を防ぐ
+            const seen = {};
+            raceBets.forEach(b => {
+              if (seen[b.selection]) return;
+              seen[b.selection] = true;
+              const display = getHorseDisplay(b.selection, horses, b.type);
+              html += `<div class="row"><span class="left">${display}</span><span class="right"><span class="refund">返金</span></span></div>`;
+              if (b.weapon && b.weapon !== '-') {
+                html += `<div class="row"><span class="left sub">${b.weapon}</span><span class="right"></span></div>`;
+              }
+            });
+            html += `<div class="row"><span class="left"></span><span class="right">収<span class="neutral">±0</span></span></div></div>`;
+            return;
+          }
 
           html += `<div class="race-block"><div class="race-name">${raceName}</div>`;
 

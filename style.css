@@ -220,6 +220,13 @@ body {
 /* Colors */
 .win { color: #4ade80; }
 .loss { color: #f87171; }
+.neutral { color: #94a3b8; }
+.refund { color: #60a5fa; }
+.cancelled {
+  color: #f59e0b;
+  font-size: 10px;
+  margin-left: 4px;
+}
 
 /* Expand trigger */
 .row.expand-trigger {
