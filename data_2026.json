@@ -1453,16 +1453,16 @@
         {
           "type": "単勝",
           "selection": "07",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "爆発調教候補",
           "result": "中止(返金)"
         },
         {
           "type": "複勝",
           "selection": "07",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "爆発調教候補",
           "result": "中止(返金)"
         }
@@ -1479,48 +1479,48 @@
         {
           "type": "単勝",
           "selection": "02",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "4連α",
           "result": "中止(返金)"
         },
         {
           "type": "複勝",
           "selection": "02",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "4連α",
           "result": "中止(返金)"
         },
         {
           "type": "単勝",
           "selection": "04",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "4連α+ラッキー候補",
           "result": "中止(返金)"
         },
         {
           "type": "複勝",
           "selection": "04",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "4連α+ラッキー候補",
           "result": "中止(返金)"
         },
         {
           "type": "単勝",
           "selection": "06",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "ラッキー候補+AI",
           "result": "中止(返金)"
         },
         {
           "type": "複勝",
           "selection": "06",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "ラッキー候補+AI",
           "result": "中止(返金)"
         }
@@ -1539,32 +1539,32 @@
         {
           "type": "単勝",
           "selection": "06",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "爆発調教候補",
           "result": "中止(返金)"
         },
         {
           "type": "複勝",
           "selection": "06",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "爆発調教候補",
           "result": "中止(返金)"
         },
         {
           "type": "単勝",
           "selection": "08",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "爆発調教候補",
           "result": "中止(返金)"
         },
         {
           "type": "複勝",
           "selection": "08",
-          "amount": 0,
-          "payout": 0,
+          "amount": 100,
+          "payout": 100,
           "weapon": "爆発調教候補",
           "result": "中止(返金)"
         }
