@@ -1445,6 +1445,135 @@
         "07": "ゼファーテソーロ"
       }
     },
+    "2026-02-07_東京8R": {
+      "date": "2026-02-07",
+      "name": "東京8R",
+      "title": "雪中止",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "07",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "爆発調教候補",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "複勝",
+          "selection": "07",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "爆発調教候補",
+          "result": "中止(返金)"
+        }
+      ],
+      "horses": {
+        "07": "エーデル"
+      }
+    },
+    "2026-02-07_東京10R": {
+      "date": "2026-02-07",
+      "name": "東京10R",
+      "title": "雪中止",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "02",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "複勝",
+          "selection": "02",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "単勝",
+          "selection": "04",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "4連α+ラッキー候補",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "複勝",
+          "selection": "04",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "4連α+ラッキー候補",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "単勝",
+          "selection": "06",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "ラッキー候補+AI",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "複勝",
+          "selection": "06",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "ラッキー候補+AI",
+          "result": "中止(返金)"
+        }
+      ],
+      "horses": {
+        "02": "コンテネレッツア",
+        "04": "ヴェナートル",
+        "06": "ボンヌソワレ"
+      }
+    },
+    "2026-02-07_東京11R": {
+      "date": "2026-02-07",
+      "name": "東京11R",
+      "title": "雪中止",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "06",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "爆発調教候補",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "複勝",
+          "selection": "06",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "爆発調教候補",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "単勝",
+          "selection": "08",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "爆発調教候補",
+          "result": "中止(返金)"
+        },
+        {
+          "type": "複勝",
+          "selection": "08",
+          "amount": 0,
+          "payout": 0,
+          "weapon": "爆発調教候補",
+          "result": "中止(返金)"
+        }
+      ],
+      "horses": {
+        "06": "レッドテリオス",
+        "08": "ベンサレム"
+      }
+    },
     "2026-02-07_京都9R": {
       "date": "2026-02-07",
       "name": "京都9R",
