@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-02-08",
+  "lastUpdated": "2026-02-14",
   "summary": {
-    "totalInvest": 16700,
-    "totalPayout": 21350,
-    "totalProfit": 4650,
-    "roi": 128
+    "totalInvest": 18300,
+    "totalPayout": 25570,
+    "totalProfit": 7270,
+    "roi": 140
   },
   "monthly": [
     {
@@ -16,10 +16,10 @@
     },
     {
       "month": "2026-02",
-      "invest": 4400,
-      "payout": 4610,
-      "profit": 210,
-      "roi": 105
+      "invest": 6000,
+      "payout": 8830,
+      "profit": 2830,
+      "roi": 147
     }
   ],
   "daily": [
@@ -112,6 +112,15 @@
       "profit": -350,
       "cumulative": 4650,
       "note": "東京・京都雪中止、ヤマニンレセディ1着"
+    },
+    {
+      "date": "2026-02-14",
+      "dayOfWeek": "金",
+      "invest": 1600,
+      "payout": 4220,
+      "profit": 2620,
+      "cumulative": 7270,
+      "note": "爆発調教アデランテ1着！4/8的中"
     }
   ],
   "races": {
@@ -2030,6 +2039,214 @@
       "horses": {
         "02": "クリノオリーブ"
       }
+    },
+    "2026-02-14_小倉6R": {
+      "date": "2026-02-14",
+      "name": "小倉6R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキー候補",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキー候補",
+          "result": "着外"
+        }
+      ],
+      "horses": {
+        "10": "フォルトレス"
+      }
+    },
+    "2026-02-14_東京7R": {
+      "date": "2026-02-14",
+      "name": "東京7R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキー",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキー",
+          "result": "着外"
+        }
+      ],
+      "horses": {
+        "12": "ミスバレンシア"
+      }
+    },
+    "2026-02-14_東京8R": {
+      "date": "2026-02-14",
+      "name": "東京8R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "02",
+          "amount": 100,
+          "payout": 2300,
+          "weapon": "爆発調教候補",
+          "result": "**1着**"
+        },
+        {
+          "type": "複勝",
+          "selection": "02",
+          "amount": 100,
+          "payout": 470,
+          "weapon": "爆発調教候補",
+          "result": "**1着**"
+        }
+      ],
+      "horses": {
+        "02": "アデランテ"
+      }
+    },
+    "2026-02-14_東京10R": {
+      "date": "2026-02-14",
+      "name": "東京10R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "11",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "爆発調教確定",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "11",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "爆発調教確定",
+          "result": "着外"
+        }
+      ],
+      "horses": {
+        "11": "グレノークス"
+      }
+    },
+    "2026-02-14_京都11R": {
+      "date": "2026-02-14",
+      "name": "京都11R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "07",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "ラッキー候補",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "07",
+          "amount": 100,
+          "payout": 300,
+          "weapon": "ラッキー候補",
+          "result": "**3着**"
+        }
+      ],
+      "horses": {
+        "07": "リラボニート"
+      }
+    },
+    "2026-02-14_小倉11R": {
+      "date": "2026-02-14",
+      "name": "小倉11R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "06",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "爆発調教確定",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "06",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "爆発調教確定",
+          "result": "着外"
+        }
+      ],
+      "horses": {
+        "06": "ルーフ"
+      }
+    },
+    "2026-02-14_東京11R": {
+      "date": "2026-02-14",
+      "name": "東京11R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "02",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "爆発調教確定",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "02",
+          "amount": 100,
+          "payout": 640,
+          "weapon": "爆発調教確定",
+          "result": "**2着**"
+        }
+      ],
+      "horses": {
+        "02": "ジッピーチューン"
+      }
+    },
+    "2026-02-14_東京12R": {
+      "date": "2026-02-14",
+      "name": "東京12R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "03",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "爆発調教候補",
+          "result": "着外"
+        },
+        {
+          "type": "複勝",
+          "selection": "03",
+          "amount": 100,
+          "payout": 510,
+          "weapon": "爆発調教候補",
+          "result": "**複勝**"
+        }
+      ],
+      "horses": {
+        "03": "レッドレナート"
+      }
     }
   },
   "weaponStats": {
@@ -2041,18 +2258,18 @@
       "roi": 213
     },
     "single": {
-      "count": 18,
-      "hits": 5,
-      "invest": 4500,
-      "payout": 4280,
-      "roi": 95
+      "count": 26,
+      "hits": 9,
+      "invest": 6100,
+      "payout": 8500,
+      "roi": 139
     },
     "total": {
-      "count": 23,
-      "hits": 6,
-      "invest": 5500,
-      "payout": 6410,
-      "roi": 117
+      "count": 31,
+      "hits": 10,
+      "invest": 7100,
+      "payout": 10630,
+      "roi": 150
     }
   },
   "weaponBreakdown": [
@@ -2070,9 +2287,9 @@
     },
     {
       "weapon": "ラッキー",
-      "count": 9,
-      "hits": 2,
-      "hitRate": 22
+      "count": 12,
+      "hits": 3,
+      "hitRate": 25
     },
     {
       "weapon": "中穴ステルス",
@@ -2088,9 +2305,9 @@
     },
     {
       "weapon": "爆発調教",
-      "count": 5,
-      "hits": 1,
-      "hitRate": 20
+      "count": 10,
+      "hits": 4,
+      "hitRate": 40
     }
   ]
 }
