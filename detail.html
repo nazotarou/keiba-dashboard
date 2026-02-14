@@ -429,7 +429,11 @@
       if (hasNewFormat) {
         // New format: globalData.races[raceKey] = { horses, bets }
         // Filter by raceKey prefix (date is in the key, not in bets)
-        const raceKeys = Object.keys(globalData.races).filter(k => k.startsWith(date)).sort();
+        const raceKeys = Object.keys(globalData.races).filter(k => k.startsWith(date)).sort((a, b) => {
+          const numA = parseInt(a.match(/(\d+)R$/)[1]);
+          const numB = parseInt(b.match(/(\d+)R$/)[1]);
+          return numA - numB;
+        });
 
         raceKeys.forEach(raceKey => {
           const raceData = globalData.races[raceKey];
