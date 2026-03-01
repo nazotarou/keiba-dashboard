@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-02-28",
+  "lastUpdated": "2026-03-01",
   "summary": {
-    "totalInvest": 28200,
+    "totalInvest": 29000,
     "totalPayout": 30880,
-    "totalProfit": 2680,
-    "roi": 109
+    "totalProfit": 1880,
+    "roi": 106
   },
   "monthly": [
     {
@@ -20,6 +20,13 @@
       "payout": 14140,
       "profit": -1760,
       "roi": 89
+    },
+    {
+      "month": "2026-03",
+      "invest": 800,
+      "payout": 0,
+      "profit": -800,
+      "roi": 0
     }
   ],
   "daily": [
@@ -157,6 +164,15 @@
       "profit": 840,
       "cumulative": 2680,
       "note": "4連αジューンアヲニヨシ1着(25.7倍)！"
+    },
+    {
+      "date": "2026-03-01",
+      "dayOfWeek": "土",
+      "invest": 800,
+      "payout": 0,
+      "profit": -800,
+      "cumulative": 1880,
+      "note": "全滅（4連α3頭+Gemini2頭）"
     }
   ],
   "races": {
@@ -3411,6 +3427,120 @@
         "18": "ウィップスティッチ",
         "10": "ユキノエミリオ"
       }
+    },
+    "2026-03-01_小倉2R": {
+      "date": "2026-03-01",
+      "name": "小倉2R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "13着"
+        },
+        {
+          "type": "複勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "13着"
+        }
+      ],
+      "horses": {
+        "12": "ジャストマイウェイ"
+      }
+    },
+    "2026-03-01_小倉3R": {
+      "date": "2026-03-01",
+      "name": "小倉3R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "12着"
+        },
+        {
+          "type": "複勝",
+          "selection": "12",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "12着"
+        }
+      ],
+      "horses": {
+        "12": "ルクスアンジュ"
+      }
+    },
+    "2026-03-01_小倉6R": {
+      "date": "2026-03-01",
+      "name": "小倉6R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "15着"
+        },
+        {
+          "type": "複勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "4連α",
+          "result": "15着"
+        }
+      ],
+      "horses": {
+        "13": "キングスメッセージ"
+      }
+    },
+    "2026-03-01_阪神8R": {
+      "date": "2026-03-01",
+      "name": "阪神8R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "12着"
+        }
+      ],
+      "horses": {
+        "10": "ルシャリオ"
+      }
+    },
+    "2026-03-01_中山12R": {
+      "date": "2026-03-01",
+      "name": "中山12R",
+      "title": "",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "06",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "Gemini",
+          "result": "10着"
+        }
+      ],
+      "horses": {
+        "06": "エスシーレベッカ"
+      }
     }
   },
   "weaponStats": {
@@ -3422,18 +3552,18 @@
       "roi": 108
     },
     "single": {
-      "count": 80,
+      "count": 83,
       "hits": 14,
-      "invest": 16600,
+      "invest": 17200,
       "payout": 16750,
-      "roi": 101
+      "roi": 97
     },
     "total": {
-      "count": 93,
+      "count": 96,
       "hits": 16,
-      "invest": 19200,
+      "invest": 19800,
       "payout": 19550,
-      "roi": 102
+      "roi": 99
     }
   },
   "weaponBreakdown": [
@@ -3445,9 +3575,9 @@
     },
     {
       "weapon": "4連α",
-      "count": 27,
+      "count": 30,
       "hits": 5,
-      "hitRate": 19
+      "hitRate": 17
     },
     {
       "weapon": "ラッキー",
