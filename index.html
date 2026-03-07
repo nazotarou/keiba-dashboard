@@ -473,32 +473,56 @@
           const raceProfitSign = raceProfit >= 0 ? '+' : '';
 
           if (hasHit) {
-            const hitBets = raceBets.filter(b => b.payout > 0);
-            const missBets = raceBets.filter(b => b.payout === 0);
+            // Group ALL bets by selection (horse)
+            const bySelection = {};
+            raceBets.forEach(b => {
+              const key = b.selection;
+              if (!bySelection[key]) bySelection[key] = [];
+              bySelection[key].push(b);
+            });
 
-            // Render hit bets
-            let hitTotal = 0;
-            hitBets.forEach(b => {
-              const type = toBetTypeShort(b.type);
-              const profit = b.payout - b.amount;
-              hitTotal += profit;
-              const display = getHorseDisplay(b.selection, horses, b.type);
-              html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span> 🎯<span class="win">+${profit.toLocaleString()}</span></span></div>`;
-              if (b.weapon && b.weapon !== '-') {
-                html += `<div class="row"><span class="left sub">${b.weapon}</span><span class="right"></span></div>`;
+            // Separate into hit groups (any payout > 0) and pure miss bets
+            const hitGroups = [];
+            const pureMissBets = [];
+            Object.entries(bySelection).forEach(([sel, bets]) => {
+              if (bets.some(b => b.payout > 0)) {
+                hitGroups.push({ selection: sel, bets });
+              } else {
+                pureMissBets.push(...bets);
               }
             });
 
-            // Show miss bets collapsed
-            if (missBets.length > 0) {
-              const hitTotalCls = hitTotal >= 0 ? 'win' : 'loss';
-              const hitTotalSign = hitTotal >= 0 ? '+' : '';
-              html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitTotalCls}">${hitTotalSign}${hitTotal.toLocaleString()}</span></span></div>`;
+            // Render hit groups (horse-level: all bets + total payout)
+            let hitNetTotal = 0;
+            hitGroups.forEach(group => {
+              const display = getHorseDisplay(group.selection, horses, group.bets[0].type);
+              let rightParts = '';
+              let groupPayout = 0;
+              group.bets.forEach(b => {
+                const type = toBetTypeShort(b.type);
+                rightParts += `${type}<span class="loss">-${b.amount}</span> `;
+                groupPayout += b.payout;
+              });
+              const groupInvest = group.bets.reduce((sum, b) => sum + b.amount, 0);
+              hitNetTotal += groupPayout - groupInvest;
+              rightParts += `🎯<span class="win">+${groupPayout.toLocaleString()}</span>`;
+              html += `<div class="row"><span class="left">${display}</span><span class="right">${rightParts}</span></div>`;
+              const weapon = group.bets.find(b => b.weapon && b.weapon !== '-');
+              if (weapon) {
+                html += `<div class="row"><span class="left sub">${weapon.weapon}</span><span class="right"></span></div>`;
+              }
+            });
 
-              const missTotal = missBets.reduce((sum, b) => sum - b.amount, 0);
-              html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${missBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
+            // Show pure miss bets collapsed
+            if (pureMissBets.length > 0) {
+              const hitNetCls = hitNetTotal >= 0 ? 'win' : 'loss';
+              const hitNetSign = hitNetTotal >= 0 ? '+' : '';
+              html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitNetCls}">${hitNetSign}${hitNetTotal.toLocaleString()}</span></span></div>`;
+
+              const missTotal = pureMissBets.reduce((sum, b) => sum - b.amount, 0);
+              html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${pureMissBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
               html += `<div class="expand-content">`;
-              missBets.forEach(b => {
+              pureMissBets.forEach(b => {
                 const type = toBetTypeShort(b.type);
                 const display = getHorseDisplay(b.selection, horses, b.type);
                 html += `<div class="row"><span class="left">${display}</span><span class="right">${type}<span class="loss">-${b.amount}</span></span></div>`;
@@ -584,43 +608,57 @@
           const raceProfitSign = raceProfit >= 0 ? '+' : '';
 
           if (hasHit) {
-            const hitBets = raceBets.filter(b => b.payout > 0);
-            const missBets = raceBets.filter(b => b.payout === 0);
-
-            const hitHorses = {};
-            hitBets.forEach(b => {
+            // Group ALL bets by horse
+            const byHorse = {};
+            raceBets.forEach(b => {
               const key = b.horse || b.selection;
               const num = b.number || ((b.betType === '単勝' || b.betType === '複勝') ? b.selection : null);
-              if (!hitHorses[key]) hitHorses[key] = { horse: key, number: num, weapon: b.weapon, bets: [] };
-              hitHorses[key].bets.push(b);
+              if (!byHorse[key]) byHorse[key] = { horse: key, number: num, bets: [] };
+              byHorse[key].bets.push(b);
             });
 
-            let hitTotal = 0;
-            Object.values(hitHorses).forEach(h => {
-              let line1Right = '';
-              h.bets.forEach(b => {
-                const type = toBetTypeShort(b.betType);
-                const profit = b.payout - b.amount;
-                hitTotal += profit;
-                if (line1Right) line1Right += ' ';
-                line1Right += `${type}<span class="loss">-${b.amount}</span> 🎯<span class="win">+${profit.toLocaleString()}</span>`;
-              });
-              const numStr = h.number ? h.number + ' ' : '';
-              html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right">${line1Right}</span></div>`;
-              if (h.weapon && h.weapon !== '-') {
-                html += `<div class="row"><span class="left sub">${h.weapon}</span><span class="right"></span></div>`;
+            // Separate into hit groups (any payout > 0) and pure miss bets
+            const hitGroups = [];
+            const pureMissBets = [];
+            Object.entries(byHorse).forEach(([key, group]) => {
+              if (group.bets.some(b => b.payout > 0)) {
+                hitGroups.push(group);
+              } else {
+                pureMissBets.push(...group.bets);
               }
             });
 
-            if (missBets.length > 0) {
-              const hitTotalCls = hitTotal >= 0 ? 'win' : 'loss';
-              const hitTotalSign = hitTotal >= 0 ? '+' : '';
-              html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitTotalCls}">${hitTotalSign}${hitTotal.toLocaleString()}</span></span></div>`;
+            // Render hit groups (horse-level: all bets + total payout)
+            let hitNetTotal = 0;
+            hitGroups.forEach(h => {
+              let line1Right = '';
+              let groupPayout = 0;
+              h.bets.forEach(b => {
+                const type = toBetTypeShort(b.betType);
+                if (line1Right) line1Right += ' ';
+                line1Right += `${type}<span class="loss">-${b.amount}</span>`;
+                groupPayout += b.payout;
+              });
+              const groupInvest = h.bets.reduce((sum, b) => sum + b.amount, 0);
+              hitNetTotal += groupPayout - groupInvest;
+              line1Right += ` 🎯<span class="win">+${groupPayout.toLocaleString()}</span>`;
+              const numStr = h.number ? h.number + ' ' : '';
+              html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right">${line1Right}</span></div>`;
+              const weapon = h.bets.find(b => b.weapon && b.weapon !== '-');
+              if (weapon) {
+                html += `<div class="row"><span class="left sub">${weapon.weapon}</span><span class="right"></span></div>`;
+              }
+            });
 
-              const missTotal = missBets.reduce((sum, b) => sum - b.amount, 0);
-              html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${missBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
+            if (pureMissBets.length > 0) {
+              const hitNetCls = hitNetTotal >= 0 ? 'win' : 'loss';
+              const hitNetSign = hitNetTotal >= 0 ? '+' : '';
+              html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitNetCls}">${hitNetSign}${hitNetTotal.toLocaleString()}</span></span></div>`;
+
+              const missTotal = pureMissBets.reduce((sum, b) => sum - b.amount, 0);
+              html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${pureMissBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
               html += `<div class="expand-content">`;
-              missBets.forEach(b => {
+              pureMissBets.forEach(b => {
                 const type = toBetTypeShort(b.betType);
                 const name = b.horse || b.selection;
                 const num = b.number || ((b.betType === '単勝' || b.betType === '複勝') ? b.selection : null);
