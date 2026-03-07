@@ -519,7 +519,8 @@
             // Render refund groups
             refundGroups.forEach(group => {
               const display = getHorseDisplay(group.selection, horses, group.bets[0].type);
-              html += `<div class="row"><span class="left">${display}</span><span class="right"><span class="refund">返金</span></span></div>`;
+              const refundTotal = group.bets.reduce((sum, b) => sum + b.payout, 0);
+              html += `<div class="row"><span class="left">${display}</span><span class="right"><span class="refund">返金 ${refundTotal.toLocaleString()}円</span></span></div>`;
               const weapon = group.bets.find(b => b.weapon && b.weapon !== '-');
               if (weapon) {
                 html += `<div class="row"><span class="left sub">${weapon.weapon}</span><span class="right"></span></div>`;
@@ -671,7 +672,8 @@
             // Render refund groups
             refundGroups.forEach(h => {
               const numStr = h.number ? h.number + ' ' : '';
-              html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right"><span class="refund">返金</span></span></div>`;
+              const refundTotal = h.bets.reduce((sum, b) => sum + b.payout, 0);
+              html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right"><span class="refund">返金 ${refundTotal.toLocaleString()}円</span></span></div>`;
               const weapon = h.bets.find(b => b.weapon && b.weapon !== '-');
               if (weapon) {
                 html += `<div class="row"><span class="left sub">${weapon.weapon}</span><span class="right"></span></div>`;
