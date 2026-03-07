@@ -481,12 +481,15 @@
               bySelection[key].push(b);
             });
 
-            // Separate into hit groups (any payout > 0) and pure miss bets
+            // Separate into hit groups, refund groups, and pure miss bets
             const hitGroups = [];
+            const refundGroups = [];
             const pureMissBets = [];
             Object.entries(bySelection).forEach(([sel, bets]) => {
-              if (bets.some(b => b.payout > 0)) {
+              if (bets.some(b => b.payout > b.amount)) {
                 hitGroups.push({ selection: sel, bets });
+              } else if (bets.some(b => b.payout > 0)) {
+                refundGroups.push({ selection: sel, bets });
               } else {
                 pureMissBets.push(...bets);
               }
@@ -513,11 +516,23 @@
               }
             });
 
+            // Render refund groups
+            refundGroups.forEach(group => {
+              const display = getHorseDisplay(group.selection, horses, group.bets[0].type);
+              html += `<div class="row"><span class="left">${display}</span><span class="right"><span class="refund">返金</span></span></div>`;
+              const weapon = group.bets.find(b => b.weapon && b.weapon !== '-');
+              if (weapon) {
+                html += `<div class="row"><span class="left sub">${weapon.weapon}</span><span class="right"></span></div>`;
+              }
+            });
+
             // Show pure miss bets collapsed
             if (pureMissBets.length > 0) {
-              const hitNetCls = hitNetTotal >= 0 ? 'win' : 'loss';
-              const hitNetSign = hitNetTotal >= 0 ? '+' : '';
-              html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitNetCls}">${hitNetSign}${hitNetTotal.toLocaleString()}</span></span></div>`;
+              if (hitGroups.length > 0) {
+                const hitNetCls = hitNetTotal >= 0 ? 'win' : 'loss';
+                const hitNetSign = hitNetTotal >= 0 ? '+' : '';
+                html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitNetCls}">${hitNetSign}${hitNetTotal.toLocaleString()}</span></span></div>`;
+              }
 
               const missTotal = pureMissBets.reduce((sum, b) => sum - b.amount, 0);
               html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${pureMissBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
@@ -617,12 +632,15 @@
               byHorse[key].bets.push(b);
             });
 
-            // Separate into hit groups (any payout > 0) and pure miss bets
+            // Separate into hit groups, refund groups, and pure miss bets
             const hitGroups = [];
+            const refundGroups = [];
             const pureMissBets = [];
             Object.entries(byHorse).forEach(([key, group]) => {
-              if (group.bets.some(b => b.payout > 0)) {
+              if (group.bets.some(b => b.payout > b.amount)) {
                 hitGroups.push(group);
+              } else if (group.bets.some(b => b.payout > 0)) {
+                refundGroups.push(group);
               } else {
                 pureMissBets.push(...group.bets);
               }
@@ -650,10 +668,22 @@
               }
             });
 
+            // Render refund groups
+            refundGroups.forEach(h => {
+              const numStr = h.number ? h.number + ' ' : '';
+              html += `<div class="row"><span class="left">${numStr}${h.horse}</span><span class="right"><span class="refund">返金</span></span></div>`;
+              const weapon = h.bets.find(b => b.weapon && b.weapon !== '-');
+              if (weapon) {
+                html += `<div class="row"><span class="left sub">${weapon.weapon}</span><span class="right"></span></div>`;
+              }
+            });
+
             if (pureMissBets.length > 0) {
-              const hitNetCls = hitNetTotal >= 0 ? 'win' : 'loss';
-              const hitNetSign = hitNetTotal >= 0 ? '+' : '';
-              html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitNetCls}">${hitNetSign}${hitNetTotal.toLocaleString()}</span></span></div>`;
+              if (hitGroups.length > 0) {
+                const hitNetCls = hitNetTotal >= 0 ? 'win' : 'loss';
+                const hitNetSign = hitNetTotal >= 0 ? '+' : '';
+                html += `<div class="row"><span class="left"></span><span class="right">収<span class="${hitNetCls}">${hitNetSign}${hitNetTotal.toLocaleString()}</span></span></div>`;
+              }
 
               const missTotal = pureMissBets.reduce((sum, b) => sum - b.amount, 0);
               html += `<div class="row expand-trigger" onclick="toggleExpand(this)"><span class="left">他${pureMissBets.length}点</span><span class="right"><span class="expand-icon">▼</span>収<span class="loss">${missTotal.toLocaleString()}</span></span></div>`;
