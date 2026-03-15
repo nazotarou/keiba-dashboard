@@ -1,10 +1,10 @@
 {
   "lastUpdated": "2026-03-15",
   "summary": {
-    "totalInvest": 38100,
+    "totalInvest": 36300,
     "totalPayout": 33640,
-    "totalProfit": -4460,
-    "roi": 88
+    "totalProfit": -2660,
+    "roi": 93
   },
   "monthly": [
     {
@@ -23,10 +23,10 @@
     },
     {
       "month": "2026-03",
-      "invest": 9900,
+      "invest": 8100,
       "payout": 2760,
-      "profit": -7140,
-      "roi": 28
+      "profit": -5340,
+      "roi": 34
     }
   ],
   "daily": [
@@ -204,10 +204,10 @@
     {
       "date": "2026-03-15",
       "dayOfWeek": "日",
-      "invest": 3600,
+      "invest": 1800,
       "payout": 910,
-      "profit": -2690,
-      "cumulative": -4460,
+      "profit": -890,
+      "cumulative": -2660,
       "note": "デンプシー複勝490円、メイプルタピット複勝420円"
     }
   ],
@@ -4285,7 +4285,7 @@
         {
           "type": "単勝",
           "selection": "04",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "AI推奨(Gemini)",
           "result": "18着"
@@ -4293,7 +4293,7 @@
         {
           "type": "複勝",
           "selection": "04",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "AI推奨(Gemini)",
           "result": "18着"
@@ -4301,7 +4301,7 @@
         {
           "type": "単勝",
           "selection": "05",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "4連α",
           "result": "3着"
@@ -4309,7 +4309,7 @@
         {
           "type": "複勝",
           "selection": "05",
-          "amount": 200,
+          "amount": 100,
           "payout": 490,
           "weapon": "4連α",
           "result": "3着"
@@ -4317,7 +4317,7 @@
         {
           "type": "単勝",
           "selection": "10",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "4連α",
           "result": "16着"
@@ -4325,7 +4325,7 @@
         {
           "type": "複勝",
           "selection": "10",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "4連α",
           "result": "16着"
@@ -4345,7 +4345,7 @@
         {
           "type": "単勝",
           "selection": "01",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "爆発調教v2",
           "result": "9着"
@@ -4353,7 +4353,7 @@
         {
           "type": "複勝",
           "selection": "01",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "爆発調教v2",
           "result": "9着"
@@ -4371,7 +4371,7 @@
         {
           "type": "単勝",
           "selection": "04",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "4連α",
           "result": "2着"
@@ -4379,7 +4379,7 @@
         {
           "type": "複勝",
           "selection": "04",
-          "amount": 200,
+          "amount": 100,
           "payout": 420,
           "weapon": "4連α",
           "result": "2着"
@@ -4397,7 +4397,7 @@
         {
           "type": "単勝",
           "selection": "13",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "AI推奨(Claude)",
           "result": "12着"
@@ -4405,7 +4405,7 @@
         {
           "type": "複勝",
           "selection": "13",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "AI推奨(Claude)",
           "result": "12着"
@@ -4423,7 +4423,7 @@
         {
           "type": "単勝",
           "selection": "06",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "4連α",
           "result": "4着"
@@ -4431,7 +4431,7 @@
         {
           "type": "複勝",
           "selection": "06",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "4連α",
           "result": "4着"
@@ -4449,7 +4449,7 @@
         {
           "type": "単勝",
           "selection": "04",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "4連α",
           "result": "12着"
@@ -4457,7 +4457,7 @@
         {
           "type": "複勝",
           "selection": "04",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "4連α",
           "result": "12着"
@@ -4465,7 +4465,7 @@
         {
           "type": "単勝",
           "selection": "10",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "爆発調教v2",
           "result": "10着"
@@ -4473,7 +4473,7 @@
         {
           "type": "複勝",
           "selection": "10",
-          "amount": 200,
+          "amount": 100,
           "payout": 0,
           "weapon": "爆発調教v2",
           "result": "10着"
@@ -4496,16 +4496,16 @@
     "single": {
       "count": 107,
       "hits": 19,
-      "invest": 23200,
+      "invest": 21400,
       "payout": 19510,
-      "roi": 84
+      "roi": 91
     },
     "total": {
       "count": 127,
       "hits": 21,
-      "invest": 27200,
+      "invest": 25400,
       "payout": 22310,
-      "roi": 82
+      "roi": 87
     }
   },
   "weaponBreakdown": [
