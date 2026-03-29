@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-03-22",
+  "lastUpdated": "2026-03-29",
   "summary": {
-    "totalInvest": 40000,
-    "totalPayout": 33640,
-    "totalProfit": -6360,
-    "roi": 84
+    "totalInvest": 45200,
+    "totalPayout": 35040,
+    "totalProfit": -10160,
+    "roi": 78
   },
   "monthly": [
     {
@@ -23,10 +23,10 @@
     },
     {
       "month": "2026-03",
-      "invest": 11800,
-      "payout": 2760,
-      "profit": -9040,
-      "roi": 23
+      "invest": 17000,
+      "payout": 4160,
+      "profit": -12840,
+      "roi": 24
     }
   ],
   "daily": [
@@ -227,6 +227,24 @@
       "profit": -1700,
       "cumulative": -6360,
       "note": "全滅（8頭）"
+    },
+    {
+      "date": "2026-03-28",
+      "dayOfWeek": "土",
+      "invest": 2400,
+      "payout": 1110,
+      "profit": -1290,
+      "cumulative": -7650,
+      "note": "キスアンドクライ単勝720円、アジュマン複勝、マドモアゼルアスク複勝"
+    },
+    {
+      "date": "2026-03-29",
+      "dayOfWeek": "日",
+      "invest": 2800,
+      "payout": 290,
+      "profit": -2510,
+      "cumulative": -10160,
+      "note": "クランフォード複勝290円のみ"
     }
   ],
   "races": {
@@ -4944,6 +4962,218 @@
       "horses": {
         "13": "ヴォンフレ"
       }
+    },
+    "2026-03-28_中京1R": {
+      "date": "2026-03-28",
+      "name": "中京1R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "08", "amount": 100, "payout": 0, "weapon": "Gemini推奨", "result": "5着"},
+        {"type": "単勝", "selection": "11", "amount": 100, "payout": 0, "weapon": "4連α", "result": "12着"},
+        {"type": "複勝", "selection": "11", "amount": 100, "payout": 0, "weapon": "4連α", "result": "12着"},
+        {"type": "馬連", "selection": "08-11", "amount": 100, "payout": 0, "weapon": "4連α,Gemini推奨", "result": "ハズレ"},
+        {"type": "枠連", "selection": "4-6", "amount": 100, "payout": 0, "weapon": "4連α,Gemini推奨", "result": "ハズレ"}
+      ],
+      "horses": {"08": "ジャカルタバオ", "11": "ソパデアホ"}
+    },
+    "2026-03-28_阪神1R": {
+      "date": "2026-03-28",
+      "name": "阪神1R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "06", "amount": 100, "payout": 0, "weapon": "4連α", "result": "4着"},
+        {"type": "複勝", "selection": "06", "amount": 100, "payout": 0, "weapon": "4連α", "result": "4着"}
+      ],
+      "horses": {"06": "マルシュボヌール"}
+    },
+    "2026-03-28_中京4R": {
+      "date": "2026-03-28",
+      "name": "中京4R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "02", "amount": 100, "payout": 0, "weapon": "4連α", "result": "14着"},
+        {"type": "複勝", "selection": "02", "amount": 100, "payout": 0, "weapon": "4連α", "result": "14着"}
+      ],
+      "horses": {"02": "ロードゴスペル"}
+    },
+    "2026-03-28_中京5R": {
+      "date": "2026-03-28",
+      "name": "中京5R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "13", "amount": 100, "payout": 0, "weapon": "4連α", "result": "14着"},
+        {"type": "複勝", "selection": "13", "amount": 100, "payout": 0, "weapon": "4連α", "result": "14着"}
+      ],
+      "horses": {"13": "デプレ"}
+    },
+    "2026-03-28_中京6R": {
+      "date": "2026-03-28",
+      "name": "中京6R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "02", "amount": 100, "payout": 0, "weapon": "4連α", "result": "15着"},
+        {"type": "複勝", "selection": "02", "amount": 100, "payout": 0, "weapon": "4連α", "result": "15着"}
+      ],
+      "horses": {"02": "エポカスピーガ"}
+    },
+    "2026-03-28_中京7R": {
+      "date": "2026-03-28",
+      "name": "中京7R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "01", "amount": 100, "payout": 720, "weapon": "Gemini推奨", "result": "**1着**"},
+        {"type": "馬連", "selection": "01-14", "amount": 100, "payout": 0, "weapon": "Gemini×Claude", "result": "ハズレ"},
+        {"type": "馬連", "selection": "01-16", "amount": 100, "payout": 0, "weapon": "Gemini×Gemini", "result": "ハズレ"},
+        {"type": "馬連", "selection": "01-05", "amount": 100, "payout": 0, "weapon": "Gemini×Claude", "result": "ハズレ"},
+        {"type": "枠連", "selection": "1-1", "amount": 100, "payout": 0, "weapon": "Gemini推奨", "result": "ハズレ"}
+      ],
+      "horses": {"01": "キスアンドクライ", "05": "グローブアマランス", "14": "ムーンライトラガー", "16": "レモンバーム"}
+    },
+    "2026-03-28_中京8R": {
+      "date": "2026-03-28",
+      "name": "中京8R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "08", "amount": 100, "payout": 0, "weapon": "Gemini推奨", "result": "3着"},
+        {"type": "複勝", "selection": "08", "amount": 100, "payout": 200, "weapon": "Gemini推奨", "result": "**3着**"}
+      ],
+      "horses": {"08": "マドモアゼルアスク"}
+    },
+    "2026-03-28_阪神10R": {
+      "date": "2026-03-28",
+      "name": "阪神10R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "10", "amount": 100, "payout": 0, "weapon": "4連α", "result": "2着"},
+        {"type": "複勝", "selection": "10", "amount": 100, "payout": 190, "weapon": "4連α", "result": "**2着**"}
+      ],
+      "horses": {"10": "アジュマン"}
+    },
+    "2026-03-28_中山11R": {
+      "date": "2026-03-28",
+      "name": "中山11R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "03", "amount": 100, "payout": 0, "weapon": "4連α", "result": "15着"},
+        {"type": "複勝", "selection": "03", "amount": 100, "payout": 0, "weapon": "4連α", "result": "15着"}
+      ],
+      "horses": {"03": "クリスマスパレード"}
+    },
+    "2026-03-29_中山1R": {
+      "date": "2026-03-29",
+      "name": "中山1R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "16", "amount": 100, "payout": 0, "weapon": "4連α,ラッキー候補", "result": "6着"},
+        {"type": "複勝", "selection": "16", "amount": 100, "payout": 0, "weapon": "4連α,ラッキー候補", "result": "6着"}
+      ],
+      "horses": {"16": "キミガハマ"}
+    },
+    "2026-03-29_中山2R": {
+      "date": "2026-03-29",
+      "name": "中山2R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "16", "amount": 100, "payout": 0, "weapon": "Gemini推奨", "result": "5着"}
+      ],
+      "horses": {"16": "ベアゴーフォー"}
+    },
+    "2026-03-29_阪神3R": {
+      "date": "2026-03-29",
+      "name": "阪神3R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "01", "amount": 100, "payout": 0, "weapon": "Claude推奨", "result": "14着"}
+      ],
+      "horses": {"01": "ダンツカレン"}
+    },
+    "2026-03-29_中山3R": {
+      "date": "2026-03-29",
+      "name": "中山3R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "09", "amount": 100, "payout": 0, "weapon": "ラッキー候補", "result": "15着"},
+        {"type": "複勝", "selection": "09", "amount": 100, "payout": 0, "weapon": "ラッキー候補", "result": "15着"}
+      ],
+      "horses": {"09": "バッハ"}
+    },
+    "2026-03-29_中京4R": {
+      "date": "2026-03-29",
+      "name": "中京4R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "08", "amount": 100, "payout": 0, "weapon": "4連α,ラッキー候補", "result": "14着"},
+        {"type": "複勝", "selection": "08", "amount": 100, "payout": 0, "weapon": "4連α,ラッキー候補", "result": "14着"}
+      ],
+      "horses": {"08": "レヴヴィ"}
+    },
+    "2026-03-29_中山6R": {
+      "date": "2026-03-29",
+      "name": "中山6R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "10", "amount": 100, "payout": 0, "weapon": "Gemini推奨", "result": "7着"},
+        {"type": "複勝", "selection": "10", "amount": 100, "payout": 0, "weapon": "Gemini推奨", "result": "7着"}
+      ],
+      "horses": {"10": "スリーコーズ"}
+    },
+    "2026-03-29_中京7R": {
+      "date": "2026-03-29",
+      "name": "中京7R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "02", "amount": 100, "payout": 0, "weapon": "Gemini推奨", "result": "4着"}
+      ],
+      "horses": {"02": "ベルフィーヌ"}
+    },
+    "2026-03-29_阪神11R": {
+      "date": "2026-03-29",
+      "name": "阪神11R",
+      "title": "六甲ステークス",
+      "bets": [
+        {"type": "単勝", "selection": "08", "amount": 100, "payout": 0, "weapon": "Claude推奨", "result": "11着"},
+        {"type": "複勝", "selection": "08", "amount": 100, "payout": 0, "weapon": "Claude推奨", "result": "11着"},
+        {"type": "単勝", "selection": "07", "amount": 100, "payout": 0, "weapon": "Claude推奨", "result": "2着"},
+        {"type": "複勝", "selection": "07", "amount": 100, "payout": 290, "weapon": "Claude推奨", "result": "**2着**"},
+        {"type": "ワイド", "selection": "07-08", "amount": 100, "payout": 0, "weapon": "Claude推奨", "result": "ハズレ"}
+      ],
+      "horses": {"07": "クランフォード", "08": "オニャンコポン"}
+    },
+    "2026-03-29_中京11R": {
+      "date": "2026-03-29",
+      "name": "中京11R",
+      "title": "高松宮記念",
+      "bets": [
+        {"type": "単勝", "selection": "08", "amount": 100, "payout": 0, "weapon": "Claude推奨", "result": "3着"},
+        {"type": "単勝", "selection": "18", "amount": 100, "payout": 0, "weapon": "Gemini推奨", "result": "17着"},
+        {"type": "馬連", "selection": "08-18", "amount": 100, "payout": 0, "weapon": "Claude/Gemini", "result": "ハズレ"},
+        {"type": "枠連", "selection": "4-8", "amount": 100, "payout": 0, "weapon": "Claude/Gemini", "result": "ハズレ"},
+        {"type": "枠連", "selection": "4-5", "amount": 100, "payout": 0, "weapon": "Claude/ルメール", "result": "ハズレ"},
+        {"type": "枠連", "selection": "5-8", "amount": 100, "payout": 0, "weapon": "Gemini/ルメール", "result": "ハズレ"},
+        {"type": "3連複", "selection": "08-09-18", "amount": 100, "payout": 0, "weapon": "Claude/Gemini/ルメール", "result": "ハズレ"},
+        {"type": "ワイド", "selection": "08-18", "amount": 100, "payout": 0, "weapon": "Claude/Gemini", "result": "ハズレ"}
+      ],
+      "horses": {"08": "ウインカーネリアン", "09": "サトノレーヴ", "18": "ジューンブレア"}
+    },
+    "2026-03-29_阪神12R": {
+      "date": "2026-03-29",
+      "name": "阪神12R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "15", "amount": 100, "payout": 0, "weapon": "Claude推奨", "result": "14着"},
+        {"type": "複勝", "selection": "15", "amount": 100, "payout": 0, "weapon": "Claude推奨", "result": "14着"}
+      ],
+      "horses": {"15": "ジャスパーソレイユ"}
+    },
+    "2026-03-29_中山12R": {
+      "date": "2026-03-29",
+      "name": "中山12R",
+      "title": "",
+      "bets": [
+        {"type": "単勝", "selection": "03", "amount": 100, "payout": 0, "weapon": "4連α,ラッキー候補", "result": "6着"},
+        {"type": "複勝", "selection": "03", "amount": 100, "payout": 0, "weapon": "4連α,ラッキー候補", "result": "6着"}
+      ],
+      "horses": {"03": "ヴェナートル"}
     }
   },
   "weaponStats": {
@@ -4955,18 +5185,18 @@
       "roi": 100
     },
     "single": {
-      "count": 126,
-      "hits": 20,
-      "invest": 25600,
-      "payout": 19710,
-      "roi": 77
+      "count": 136,
+      "hits": 21,
+      "invest": 27600,
+      "payout": 19900,
+      "roi": 72
     },
     "total": {
-      "count": 140,
-      "hits": 22,
-      "invest": 28400,
-      "payout": 22510,
-      "roi": 79
+      "count": 150,
+      "hits": 23,
+      "invest": 30400,
+      "payout": 22700,
+      "roi": 75
     }
   },
   "weaponBreakdown": [
@@ -4978,15 +5208,15 @@
     },
     {
       "weapon": "4連α",
-      "count": 50,
-      "hits": 8,
-      "hitRate": 16
+      "count": 60,
+      "hits": 9,
+      "hitRate": 15
     },
     {
       "weapon": "ラッキー",
-      "count": 30,
+      "count": 34,
       "hits": 4,
-      "hitRate": 13
+      "hitRate": 12
     },
     {
       "weapon": "中穴ステルス",
