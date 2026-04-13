@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-04-05",
+  "lastUpdated": "2026-04-12",
   "summary": {
-    "totalInvest": 49600,
+    "totalInvest": 52200,
     "totalPayout": 36090,
-    "totalProfit": -13510,
-    "roi": 73
+    "totalProfit": -16110,
+    "roi": 69
   },
   "monthly": [
     {
@@ -30,10 +30,10 @@
     },
     {
       "month": "2026-04",
-      "invest": 4400,
+      "invest": 7000,
       "payout": 1050,
-      "profit": -3350,
-      "roi": 24
+      "profit": -5950,
+      "roi": 15
     }
   ],
   "daily": [
@@ -270,6 +270,24 @@
       "profit": -1350,
       "cumulative": -13510,
       "note": "全滅（0頭）"
+    },
+    {
+      "date": "2026-04-11",
+      "dayOfWeek": "金",
+      "invest": 1100,
+      "payout": 0,
+      "profit": -1100,
+      "cumulative": -14610,
+      "note": "NZT全滅（0頭）"
+    },
+    {
+      "date": "2026-04-12",
+      "dayOfWeek": "土",
+      "invest": 1500,
+      "payout": 0,
+      "profit": -1500,
+      "cumulative": -16110,
+      "note": "桜花賞全滅（0頭）"
     }
   ],
   "races": {
@@ -6016,6 +6034,243 @@
         "09": "ヨーホーレイク",
         "12": "レーベンスティール",
         "15": "クロワデュノール"
+      }
+    },
+    "2026-04-11_中山11R": {
+      "date": "2026-04-11",
+      "name": "中山11R",
+      "title": "NZT",
+      "bets": [
+        {
+          "type": "単勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "9着"
+        },
+        {
+          "type": "複勝",
+          "selection": "10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "9着"
+        },
+        {
+          "type": "単勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "11着"
+        },
+        {
+          "type": "複勝",
+          "selection": "13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "11着"
+        },
+        {
+          "type": "3連複",
+          "selection": "04-10-13",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "04-10-14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "04-13-14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "10-13-14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "-"
+        },
+        {
+          "type": "ワイド",
+          "selection": "04-14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "-"
+        },
+        {
+          "type": "ワイド",
+          "selection": "04-10",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "-"
+        },
+        {
+          "type": "ワイド",
+          "selection": "10-14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI推奨",
+          "result": "-"
+        }
+      ],
+      "horses": {
+        "04": "ヒズマスターピース",
+        "10": "ジーティーシンドウ",
+        "13": "ガリレア",
+        "14": "ディールメーカー"
+      }
+    },
+    "2026-04-12_阪神11R": {
+      "date": "2026-04-12",
+      "name": "阪神11R",
+      "title": "桜花賞",
+      "bets": [
+        {
+          "type": "馬連",
+          "selection": "07-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "馬連",
+          "selection": "12-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "05-07-14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "05-07-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "05-14-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "07-10-14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "07-10-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "07-12-14",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "07-12-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "07-14-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "07-14-17",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "07-15-17",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "10-14-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "12-14-15",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        },
+        {
+          "type": "3連複",
+          "selection": "14-15-17",
+          "amount": 100,
+          "payout": 0,
+          "weapon": "AI検討",
+          "result": "-"
+        }
+      ],
+      "horses": {
+        "05": "",
+        "07": "アランカール",
+        "10": "",
+        "12": "",
+        "14": "",
+        "15": "スターアニス",
+        "17": ""
       }
     }
   },
