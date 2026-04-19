@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-04-12",
+  "lastUpdated": "2026-04-19",
   "summary": {
-    "totalInvest": 52200,
+    "totalInvest": 54100,
     "totalPayout": 36090,
-    "totalProfit": -16110,
-    "roi": 69
+    "totalProfit": -18010,
+    "roi": 67
   },
   "monthly": [
     {
@@ -30,10 +30,10 @@
     },
     {
       "month": "2026-04",
-      "invest": 7000,
+      "invest": 8900,
       "payout": 1050,
-      "profit": -5950,
-      "roi": 15
+      "profit": -7850,
+      "roi": 12
     }
   ],
   "daily": [
@@ -288,6 +288,24 @@
       "profit": -1500,
       "cumulative": -16110,
       "note": "桜花賞全滅（0頭）"
+    },
+    {
+      "date": "2026-04-18",
+      "dayOfWeek": "土",
+      "invest": 1400,
+      "payout": 0,
+      "profit": -1400,
+      "cumulative": -17510,
+      "note": "アンタレスS全滅、タガノバビロン4着惜敗"
+    },
+    {
+      "date": "2026-04-19",
+      "dayOfWeek": "日",
+      "invest": 500,
+      "payout": 0,
+      "profit": -500,
+      "cumulative": -18010,
+      "note": "京葉S・皐月賞全滅、3連複1頭違い"
     }
   ],
   "races": {
@@ -6271,6 +6289,61 @@
         "14": "",
         "15": "スターアニス",
         "17": ""
+      }
+    },
+    "2026-04-18_阪神11R": {
+      "date": "2026-04-18",
+      "name": "阪神11R",
+      "title": "アンタレスS",
+      "bets": [
+        { "type": "単勝", "selection": "03", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "4着" },
+        { "type": "単勝", "selection": "16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "12着" },
+        { "type": "馬連", "selection": "03-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "ワイド", "selection": "03-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "ワイド", "selection": "06-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "ワイド", "selection": "03-06", "amount": 200, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "01-03-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "03-06-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "03-08-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "03-06-08", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "01-03-06", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "01-03-08", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "01-06-08", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" }
+      ],
+      "horses": {
+        "01": "ブライアンセンス",
+        "03": "タガノバビロン",
+        "06": "ルシュヴァルドール",
+        "08": "サンデーファンデー",
+        "16": "ジューンアヲニヨシ"
+      }
+    },
+    "2026-04-19_中山10R": {
+      "date": "2026-04-19",
+      "name": "中山10R",
+      "title": "京葉S",
+      "bets": [
+        { "type": "単勝", "selection": "03", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "6着" },
+        { "type": "単勝", "selection": "09", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "10着" },
+        { "type": "馬連", "selection": "03-09", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "ワイド", "selection": "03-09", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" }
+      ],
+      "horses": {
+        "03": "ムーヴ",
+        "09": "スリーピース"
+      }
+    },
+    "2026-04-19_中山11R": {
+      "date": "2026-04-19",
+      "name": "中山11R",
+      "title": "皐月賞",
+      "bets": [
+        { "type": "3連複", "selection": "04-08-15", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" }
+      ],
+      "horses": {
+        "04": "ロブチェン",
+        "08": "マテンロウゲイル",
+        "15": "リアライズシリウス"
       }
     }
   },
