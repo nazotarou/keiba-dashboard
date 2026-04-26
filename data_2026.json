@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-04-19",
+  "lastUpdated": "2026-04-26",
   "summary": {
-    "totalInvest": 54100,
-    "totalPayout": 36090,
-    "totalProfit": -18010,
-    "roi": 67
+    "totalInvest": 55600,
+    "totalPayout": 36530,
+    "totalProfit": -19070,
+    "roi": 66
   },
   "monthly": [
     {
@@ -30,10 +30,10 @@
     },
     {
       "month": "2026-04",
-      "invest": 8900,
-      "payout": 1050,
-      "profit": -7850,
-      "roi": 12
+      "invest": 10400,
+      "payout": 1490,
+      "profit": -8910,
+      "roi": 14
     }
   ],
   "daily": [
@@ -306,6 +306,24 @@
       "profit": -500,
       "cumulative": -18010,
       "note": "京葉S・皐月賞全滅、3連複1頭違い"
+    },
+    {
+      "date": "2026-04-25",
+      "dayOfWeek": "土",
+      "invest": 1000,
+      "payout": 440,
+      "profit": -560,
+      "cumulative": -18570,
+      "note": "青葉賞ワイド04-16的中440円"
+    },
+    {
+      "date": "2026-04-26",
+      "dayOfWeek": "日",
+      "invest": 500,
+      "payout": 0,
+      "profit": -500,
+      "cumulative": -19070,
+      "note": "マイラーズC全滅、ベラジオボンド3着"
     }
   ],
   "races": {
@@ -6344,6 +6362,50 @@
         "04": "ロブチェン",
         "08": "マテンロウゲイル",
         "15": "リアライズシリウス"
+      }
+    },
+    "2026-04-25_東京11R": {
+      "date": "2026-04-25",
+      "name": "東京11R",
+      "title": "青葉賞",
+      "bets": [
+        { "type": "3連複", "selection": "04-12-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "02-04-12", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "04-12-17", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "02-04-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "04-11-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "04-06-16", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "3連複", "selection": "02-04-17", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "ワイド", "selection": "04-12", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" },
+        { "type": "ワイド", "selection": "04-16", "amount": 100, "payout": 440, "weapon": "AI検討", "result": "的中" },
+        { "type": "ワイド", "selection": "02-04", "amount": 100, "payout": 0, "weapon": "AI検討", "result": "-" }
+      ],
+      "horses": {
+        "02": "カットソロ",
+        "04": "ブラックオリンピア",
+        "06": "テルヒコウ",
+        "11": "ノチェセラーダ",
+        "12": "サガルマータ",
+        "16": "ゴーイントゥスカイ",
+        "17": "シャドウマスター"
+      }
+    },
+    "2026-04-26_京都11R": {
+      "date": "2026-04-26",
+      "name": "京都11R",
+      "title": "マイラーズC",
+      "bets": [
+        { "type": "単勝", "selection": "07", "amount": 100, "payout": 0, "weapon": "独自検討", "result": "3着" },
+        { "type": "馬連", "selection": "07-12", "amount": 100, "payout": 0, "weapon": "独自検討", "result": "-" },
+        { "type": "馬連", "selection": "07-10", "amount": 100, "payout": 0, "weapon": "独自検討", "result": "-" },
+        { "type": "ワイド", "selection": "05-07", "amount": 100, "payout": 0, "weapon": "独自検討", "result": "-" },
+        { "type": "馬連", "selection": "05-07", "amount": 100, "payout": 0, "weapon": "独自検討", "result": "-" }
+      ],
+      "horses": {
+        "05": "ショウナンアデイブ",
+        "07": "ベラジオボンド",
+        "10": "ウォーターリヒト",
+        "12": "ファーヴェント"
       }
     }
   },
