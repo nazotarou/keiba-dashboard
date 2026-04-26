@@ -507,7 +507,8 @@
               let groupPayout = 0;
               group.bets.forEach(b => {
                 const type = toBetTypeShort(b.type);
-                rightParts += `${type}<span class="loss">-${b.amount}</span> `;
+                const hitMark = b.payout > 0 ? '🎯' : '';
+                rightParts += `${type}${hitMark}<span class="loss">-${b.amount}</span> `;
                 groupPayout += b.payout;
               });
               const groupInvest = group.bets.reduce((sum, b) => sum + b.amount, 0);
@@ -658,8 +659,9 @@
               let groupPayout = 0;
               h.bets.forEach(b => {
                 const type = toBetTypeShort(b.betType);
+                const hitMark = b.payout > 0 ? '🎯' : '';
                 if (line1Right) line1Right += ' ';
-                line1Right += `${type}<span class="loss">-${b.amount}</span>`;
+                line1Right += `${type}${hitMark}<span class="loss">-${b.amount}</span>`;
                 groupPayout += b.payout;
               });
               const groupInvest = h.bets.reduce((sum, b) => sum + b.amount, 0);
