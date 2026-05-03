@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-04-26",
+  "lastUpdated": "2026-05-03",
   "summary": {
-    "totalInvest": 55600,
+    "totalInvest": 58400,
     "totalPayout": 36530,
-    "totalProfit": -19070,
-    "roi": 66
+    "totalProfit": -21870,
+    "roi": 63
   },
   "monthly": [
     {
@@ -34,6 +34,13 @@
       "payout": 1490,
       "profit": -8910,
       "roi": 14
+    },
+    {
+      "month": "2026-05",
+      "invest": 2800,
+      "payout": 0,
+      "profit": -2800,
+      "roi": 0
     }
   ],
   "daily": [
@@ -324,6 +331,24 @@
       "profit": -500,
       "cumulative": -19070,
       "note": "マイラーズC全滅、ベラジオボンド3着"
+    },
+    {
+      "date": "2026-05-02",
+      "dayOfWeek": "土",
+      "invest": 800,
+      "payout": 0,
+      "profit": -800,
+      "cumulative": -19870,
+      "note": "京王杯SC全滅、軸12ウイントワイライト16着大敗"
+    },
+    {
+      "date": "2026-05-03",
+      "dayOfWeek": "日",
+      "invest": 2000,
+      "payout": 0,
+      "profit": -2000,
+      "cumulative": -21870,
+      "note": "天皇賞春全滅、軸12ヘデントール5着惜敗、2着15(12人気)買い目外"
     }
   ],
   "races": {
@@ -6406,6 +6431,66 @@
         "07": "ベラジオボンド",
         "10": "ウォーターリヒト",
         "12": "ファーヴェント"
+      }
+    },
+    "2026-05-02_東京11R": {
+      "date": "2026-05-02",
+      "name": "東京11R",
+      "title": "京王杯SC",
+      "bets": [
+        { "type": "3連複", "selection": "02-12-13", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "02-12-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "02-12-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "12-13-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "12-13-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "12-14-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "12-14-18", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "ワイド", "selection": "12-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" }
+      ],
+      "horses": {
+        "02": "ダノンセンチュリー",
+        "12": "ウイントワイライト",
+        "13": "ファンダム",
+        "14": "マイネルチケット",
+        "16": "ワールズエンド",
+        "18": "ヤブサメ"
+      }
+    },
+    "2026-05-03_京都11R": {
+      "date": "2026-05-03",
+      "name": "京都11R",
+      "title": "天皇賞(春)",
+      "bets": [
+        { "type": "3連複", "selection": "03-04-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "03-08-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "03-11-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "03-12-13", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "03-12-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "04-07-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "04-08-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "04-11-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "04-12-13", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "04-12-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "07-08-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "07-11-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "07-12-13", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "07-12-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "08-11-12", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "08-12-13", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "08-12-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "11-12-13", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "11-12-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" },
+        { "type": "3連複", "selection": "12-13-14", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "-" }
+      ],
+      "horses": {
+        "03": "アドマイヤテラ",
+        "04": "アクアヴァーナル",
+        "07": "クロワデュノール",
+        "08": "シンエンペラー",
+        "11": "タガノデュード",
+        "12": "ヘデントール",
+        "13": "ミステリーウェイ",
+        "14": "ホーエリート"
       }
     }
   },
