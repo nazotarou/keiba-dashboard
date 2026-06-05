@@ -350,6 +350,12 @@
           <div class="day-profit">---</div>
         </button>`;
       }
+      if (data.invest === 0) {
+        return `<button class="day-btn" disabled>
+          <div class="day-date">${day}(${dow})</div>
+          <div class="day-profit">未参戦</div>
+        </button>`;
+      }
       const profitClass = data.profit >= 0 ? 'positive' : 'negative';
       const profitText = (data.profit >= 0 ? '+' : '') + data.profit.toLocaleString() + '円';
       return `<button class="day-btn ${profitClass}" data-date="${dateStr}">
