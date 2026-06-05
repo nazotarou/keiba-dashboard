@@ -349,6 +349,78 @@
       "profit": -2000,
       "cumulative": -21870,
       "note": "天皇賞春全滅、軸12ヘデントール5着惜敗、2着15(12人気)買い目外"
+    },
+    {
+      "date": "2026-05-09",
+      "dayOfWeek": "土",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-05-10",
+      "dayOfWeek": "日",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-05-16",
+      "dayOfWeek": "土",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-05-17",
+      "dayOfWeek": "日",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-05-23",
+      "dayOfWeek": "土",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-05-24",
+      "dayOfWeek": "日",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-05-30",
+      "dayOfWeek": "土",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-05-31",
+      "dayOfWeek": "日",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
     }
   ],
   "races": {
