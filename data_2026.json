@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-05-03",
+  "lastUpdated": "2026-06-14",
   "summary": {
-    "totalInvest": 58400,
+    "totalInvest": 60400,
     "totalPayout": 36530,
-    "totalProfit": -21870,
-    "roi": 63
+    "totalProfit": -23870,
+    "roi": 60
   },
   "monthly": [
     {
@@ -40,6 +40,13 @@
       "invest": 2800,
       "payout": 0,
       "profit": -2800,
+      "roi": 0
+    },
+    {
+      "month": "2026-06",
+      "invest": 2000,
+      "payout": 0,
+      "profit": -2000,
       "roi": 0
     }
   ],
@@ -421,6 +428,15 @@
       "profit": 0,
       "cumulative": -21870,
       "note": "未参戦"
+    },
+    {
+      "date": "2026-06-14",
+      "dayOfWeek": "日",
+      "invest": 2000,
+      "payout": 0,
+      "profit": -2000,
+      "cumulative": -23870,
+      "note": "宝塚記念全滅、1着16・3着01的中も2着05(1人気)買い目外"
     }
   ],
   "races": {
@@ -6563,6 +6579,41 @@
         "12": "ヘデントール",
         "13": "ミステリーウェイ",
         "14": "ホーエリート"
+      }
+    },
+    "2026-06-14_阪神11R": {
+      "date": "2026-06-14",
+      "name": "阪神11R",
+      "title": "宝塚記念",
+      "bets": [
+        { "type": "3連複", "selection": "01-02-09", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-02-15", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-02-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-02-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-09-15", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-09-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-09-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-15-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-15-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "01-16-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "02-09-15", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "02-09-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "02-09-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "02-15-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "02-15-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "02-16-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "09-15-16", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "09-15-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "09-16-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" },
+        { "type": "3連複", "selection": "15-16-17", "amount": 100, "payout": 0, "weapon": "AI推奨", "result": "ハズレ" }
+      ],
+      "horses": {
+        "01": "ダノンデサイル",
+        "02": "ミュージアムマイル",
+        "09": "コスモキュランダ",
+        "15": "マイユニバース",
+        "16": "メイショウタバル",
+        "17": "レガレイラ"
       }
     }
   },
