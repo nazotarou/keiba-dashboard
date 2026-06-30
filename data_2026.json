@@ -430,6 +430,33 @@
       "note": "未参戦"
     },
     {
+      "date": "2026-06-06",
+      "dayOfWeek": "土",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-06-07",
+      "dayOfWeek": "日",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-06-13",
+      "dayOfWeek": "土",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -21870,
+      "note": "未参戦"
+    },
+    {
       "date": "2026-06-14",
       "dayOfWeek": "日",
       "invest": 2000,
@@ -437,6 +464,42 @@
       "profit": -2000,
       "cumulative": -23870,
       "note": "宝塚記念全滅、1着16・3着01的中も2着05(1人気)買い目外"
+    },
+    {
+      "date": "2026-06-20",
+      "dayOfWeek": "土",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -23870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-06-21",
+      "dayOfWeek": "日",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -23870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-06-27",
+      "dayOfWeek": "土",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -23870,
+      "note": "未参戦"
+    },
+    {
+      "date": "2026-06-28",
+      "dayOfWeek": "日",
+      "invest": 0,
+      "payout": 0,
+      "profit": 0,
+      "cumulative": -23870,
+      "note": "未参戦"
     }
   ],
   "races": {
